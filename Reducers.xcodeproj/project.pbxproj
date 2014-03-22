@@ -11,8 +11,8 @@
 		D4ACA64518DDEC4900EBD899 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D4ACA64318DDEC4900EBD899 /* InfoPlist.strings */; };
 		D4ACA66518DDED9900EBD899 /* Reducers.h in Headers */ = {isa = PBXBuildFile; fileRef = D4ACA64718DDEC4900EBD899 /* Reducers.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D4ACA66718DDEDB100EBD899 /* Lagrangian.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4ACA66618DDEDB100EBD899 /* Lagrangian.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		D4ACA66A18DDEE4500EBD899 /* REDReducer.h in Headers */ = {isa = PBXBuildFile; fileRef = D4ACA66818DDEE4500EBD899 /* REDReducer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D4ACA66B18DDEE4500EBD899 /* REDReducer.m in Sources */ = {isa = PBXBuildFile; fileRef = D4ACA66918DDEE4500EBD899 /* REDReducer.m */; };
+		D4ACA66A18DDEE4500EBD899 /* REDReducible.h in Headers */ = {isa = PBXBuildFile; fileRef = D4ACA66818DDEE4500EBD899 /* REDReducible.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D4ACA66B18DDEE4500EBD899 /* REDReducible.m in Sources */ = {isa = PBXBuildFile; fileRef = D4ACA66918DDEE4500EBD899 /* REDReducible.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,8 +38,8 @@
 		D4ACA64E18DDEC4A00EBD899 /* ReducersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReducersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4ACA64F18DDEC4A00EBD899 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		D4ACA66618DDEDB100EBD899 /* Lagrangian.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Lagrangian.framework; path = External/Lagrangian/build/Debug/Lagrangian.framework; sourceTree = "<group>"; };
-		D4ACA66818DDEE4500EBD899 /* REDReducer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDReducer.h; sourceTree = "<group>"; };
-		D4ACA66918DDEE4500EBD899 /* REDReducer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDReducer.m; sourceTree = "<group>"; };
+		D4ACA66818DDEE4500EBD899 /* REDReducible.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDReducible.h; sourceTree = "<group>"; };
+		D4ACA66918DDEE4500EBD899 /* REDReducible.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDReducible.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,8 +98,8 @@
 			isa = PBXGroup;
 			children = (
 				D4ACA64718DDEC4900EBD899 /* Reducers.h */,
-				D4ACA66818DDEE4500EBD899 /* REDReducer.h */,
-				D4ACA66918DDEE4500EBD899 /* REDReducer.m */,
+				D4ACA66818DDEE4500EBD899 /* REDReducible.h */,
+				D4ACA66918DDEE4500EBD899 /* REDReducible.m */,
 				D4ACA64118DDEC4900EBD899 /* Supporting Files */,
 			);
 			path = Reducers;
@@ -123,7 +123,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4ACA66518DDED9900EBD899 /* Reducers.h in Headers */,
-				D4ACA66A18DDEE4500EBD899 /* REDReducer.h in Headers */,
+				D4ACA66A18DDEE4500EBD899 /* REDReducible.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,7 +212,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4ACA66B18DDEE4500EBD899 /* REDReducer.m in Sources */,
+				D4ACA66B18DDEE4500EBD899 /* REDReducible.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
