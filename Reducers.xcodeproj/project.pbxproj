@@ -1,0 +1,465 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D4ACA63B18DDEC4900EBD899 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4ACA63A18DDEC4900EBD899 /* Cocoa.framework */; };
+		D4ACA64518DDEC4900EBD899 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D4ACA64318DDEC4900EBD899 /* InfoPlist.strings */; };
+		D4ACA64918DDEC4900EBD899 /* Reducers.m in Sources */ = {isa = PBXBuildFile; fileRef = D4ACA64818DDEC4900EBD899 /* Reducers.m */; };
+		D4ACA65018DDEC4A00EBD899 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4ACA64F18DDEC4A00EBD899 /* XCTest.framework */; };
+		D4ACA65118DDEC4A00EBD899 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4ACA63A18DDEC4900EBD899 /* Cocoa.framework */; };
+		D4ACA65418DDEC4A00EBD899 /* Reducers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4ACA63718DDEC4900EBD899 /* Reducers.framework */; };
+		D4ACA65A18DDEC4A00EBD899 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D4ACA65818DDEC4A00EBD899 /* InfoPlist.strings */; };
+		D4ACA65C18DDEC4A00EBD899 /* ReducersTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D4ACA65B18DDEC4A00EBD899 /* ReducersTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D4ACA65218DDEC4A00EBD899 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D4ACA62E18DDEC4900EBD899 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D4ACA63618DDEC4900EBD899;
+			remoteInfo = Reducers;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D4ACA63718DDEC4900EBD899 /* Reducers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Reducers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4ACA63A18DDEC4900EBD899 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		D4ACA63D18DDEC4900EBD899 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D4ACA63E18DDEC4900EBD899 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		D4ACA63F18DDEC4900EBD899 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		D4ACA64218DDEC4900EBD899 /* Reducers-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Reducers-Info.plist"; sourceTree = "<group>"; };
+		D4ACA64418DDEC4900EBD899 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D4ACA64618DDEC4900EBD899 /* Reducers-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Reducers-Prefix.pch"; sourceTree = "<group>"; };
+		D4ACA64718DDEC4900EBD899 /* Reducers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Reducers.h; sourceTree = "<group>"; };
+		D4ACA64818DDEC4900EBD899 /* Reducers.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Reducers.m; sourceTree = "<group>"; };
+		D4ACA64E18DDEC4A00EBD899 /* ReducersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReducersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4ACA64F18DDEC4A00EBD899 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		D4ACA65718DDEC4A00EBD899 /* ReducersTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ReducersTests-Info.plist"; sourceTree = "<group>"; };
+		D4ACA65918DDEC4A00EBD899 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D4ACA65B18DDEC4A00EBD899 /* ReducersTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReducersTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D4ACA63318DDEC4900EBD899 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4ACA63B18DDEC4900EBD899 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4ACA64B18DDEC4A00EBD899 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4ACA65418DDEC4A00EBD899 /* Reducers.framework in Frameworks */,
+				D4ACA65118DDEC4A00EBD899 /* Cocoa.framework in Frameworks */,
+				D4ACA65018DDEC4A00EBD899 /* XCTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D4ACA62D18DDEC4900EBD899 = {
+			isa = PBXGroup;
+			children = (
+				D4ACA64018DDEC4900EBD899 /* Reducers */,
+				D4ACA65518DDEC4A00EBD899 /* ReducersTests */,
+				D4ACA63918DDEC4900EBD899 /* Frameworks */,
+				D4ACA63818DDEC4900EBD899 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D4ACA63818DDEC4900EBD899 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D4ACA63718DDEC4900EBD899 /* Reducers.framework */,
+				D4ACA64E18DDEC4A00EBD899 /* ReducersTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D4ACA63918DDEC4900EBD899 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D4ACA63A18DDEC4900EBD899 /* Cocoa.framework */,
+				D4ACA64F18DDEC4A00EBD899 /* XCTest.framework */,
+				D4ACA63C18DDEC4900EBD899 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D4ACA63C18DDEC4900EBD899 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D4ACA63D18DDEC4900EBD899 /* Foundation.framework */,
+				D4ACA63E18DDEC4900EBD899 /* CoreData.framework */,
+				D4ACA63F18DDEC4900EBD899 /* AppKit.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		D4ACA64018DDEC4900EBD899 /* Reducers */ = {
+			isa = PBXGroup;
+			children = (
+				D4ACA64718DDEC4900EBD899 /* Reducers.h */,
+				D4ACA64818DDEC4900EBD899 /* Reducers.m */,
+				D4ACA64118DDEC4900EBD899 /* Supporting Files */,
+			);
+			path = Reducers;
+			sourceTree = "<group>";
+		};
+		D4ACA64118DDEC4900EBD899 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D4ACA64218DDEC4900EBD899 /* Reducers-Info.plist */,
+				D4ACA64318DDEC4900EBD899 /* InfoPlist.strings */,
+				D4ACA64618DDEC4900EBD899 /* Reducers-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D4ACA65518DDEC4A00EBD899 /* ReducersTests */ = {
+			isa = PBXGroup;
+			children = (
+				D4ACA65B18DDEC4A00EBD899 /* ReducersTests.m */,
+				D4ACA65618DDEC4A00EBD899 /* Supporting Files */,
+			);
+			path = ReducersTests;
+			sourceTree = "<group>";
+		};
+		D4ACA65618DDEC4A00EBD899 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D4ACA65718DDEC4A00EBD899 /* ReducersTests-Info.plist */,
+				D4ACA65818DDEC4A00EBD899 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		D4ACA63418DDEC4900EBD899 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		D4ACA63618DDEC4900EBD899 /* Reducers */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D4ACA65F18DDEC4A00EBD899 /* Build configuration list for PBXNativeTarget "Reducers" */;
+			buildPhases = (
+				D4ACA63218DDEC4900EBD899 /* Sources */,
+				D4ACA63318DDEC4900EBD899 /* Frameworks */,
+				D4ACA63418DDEC4900EBD899 /* Headers */,
+				D4ACA63518DDEC4900EBD899 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Reducers;
+			productName = Reducers;
+			productReference = D4ACA63718DDEC4900EBD899 /* Reducers.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		D4ACA64D18DDEC4A00EBD899 /* ReducersTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D4ACA66218DDEC4A00EBD899 /* Build configuration list for PBXNativeTarget "ReducersTests" */;
+			buildPhases = (
+				D4ACA64A18DDEC4A00EBD899 /* Sources */,
+				D4ACA64B18DDEC4A00EBD899 /* Frameworks */,
+				D4ACA64C18DDEC4A00EBD899 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D4ACA65318DDEC4A00EBD899 /* PBXTargetDependency */,
+			);
+			name = ReducersTests;
+			productName = ReducersTests;
+			productReference = D4ACA64E18DDEC4A00EBD899 /* ReducersTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D4ACA62E18DDEC4900EBD899 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Rob Rix";
+				TargetAttributes = {
+					D4ACA64D18DDEC4A00EBD899 = {
+						TestTargetID = D4ACA63618DDEC4900EBD899;
+					};
+				};
+			};
+			buildConfigurationList = D4ACA63118DDEC4900EBD899 /* Build configuration list for PBXProject "Reducers" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D4ACA62D18DDEC4900EBD899;
+			productRefGroup = D4ACA63818DDEC4900EBD899 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D4ACA63618DDEC4900EBD899 /* Reducers */,
+				D4ACA64D18DDEC4A00EBD899 /* ReducersTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D4ACA63518DDEC4900EBD899 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4ACA64518DDEC4900EBD899 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4ACA64C18DDEC4A00EBD899 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4ACA65A18DDEC4A00EBD899 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D4ACA63218DDEC4900EBD899 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4ACA64918DDEC4900EBD899 /* Reducers.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4ACA64A18DDEC4A00EBD899 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4ACA65C18DDEC4A00EBD899 /* ReducersTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D4ACA65318DDEC4A00EBD899 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D4ACA63618DDEC4900EBD899 /* Reducers */;
+			targetProxy = D4ACA65218DDEC4A00EBD899 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D4ACA64318DDEC4900EBD899 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D4ACA64418DDEC4900EBD899 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D4ACA65818DDEC4A00EBD899 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D4ACA65918DDEC4A00EBD899 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D4ACA65D18DDEC4A00EBD899 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		D4ACA65E18DDEC4A00EBD899 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		D4ACA66018DDEC4A00EBD899 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Reducers/Reducers-Prefix.pch";
+				INFOPLIST_FILE = "Reducers/Reducers-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Debug;
+		};
+		D4ACA66118DDEC4A00EBD899 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Reducers/Reducers-Prefix.pch";
+				INFOPLIST_FILE = "Reducers/Reducers-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Release;
+		};
+		D4ACA66318DDEC4A00EBD899 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Reducers.framework/Versions/A/Reducers";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Reducers/Reducers-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "ReducersTests/ReducersTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		D4ACA66418DDEC4A00EBD899 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Reducers.framework/Versions/A/Reducers";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Reducers/Reducers-Prefix.pch";
+				INFOPLIST_FILE = "ReducersTests/ReducersTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D4ACA63118DDEC4900EBD899 /* Build configuration list for PBXProject "Reducers" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D4ACA65D18DDEC4A00EBD899 /* Debug */,
+				D4ACA65E18DDEC4A00EBD899 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D4ACA65F18DDEC4A00EBD899 /* Build configuration list for PBXNativeTarget "Reducers" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D4ACA66018DDEC4A00EBD899 /* Debug */,
+				D4ACA66118DDEC4A00EBD899 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		D4ACA66218DDEC4A00EBD899 /* Build configuration list for PBXNativeTarget "ReducersTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D4ACA66318DDEC4A00EBD899 /* Debug */,
+				D4ACA66418DDEC4A00EBD899 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D4ACA62E18DDEC4900EBD899 /* Project object */;
+}
