@@ -1,6 +1,30 @@
 //  Copyright (c) 2014 Rob Rix. All rights reserved.
 
 #import "REDFilter.h"
+#import "REDReducer.h"
+
+#pragma mark Filter
+
+id<REDReducible> REDFilter(id<REDReducible> collection, REDPredicateBlock predicate) {
+	return [REDReducer reducerWithReducible:collection transformer:^REDReducingBlock(REDReducingBlock reduce) {
+		return ^(id into, id each) {
+			return predicate(each)?
+				reduce(into, each)
+			:	into;
+		};
+	}];
+}
+
+l3_addTestSubjectTypeWithFunction(REDFilter)
+l3_test(&REDFilter) {
+	id collection = @[ @"aardvarks", @"fish", @"penguins", @"sheep", @"moose" ];
+	id filtered = @[ @"aardvarks", @"penguins" ];
+	REDPredicateBlock predicate = ^bool (NSString *subject) { return [subject hasSuffix:@"s"]; };
+	NSArray *into = @[];
+	REDReducingBlock append = ^(NSArray *into, id each) { return [into arrayByAddingObject:each]; };
+	l3_expect([REDFilter(collection, predicate) red_reduce:into usingBlock:append]).to.equal(filtered);
+}
+
 
 #pragma mark Predicates
 

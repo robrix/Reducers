@@ -12,6 +12,15 @@
 typedef bool (^REDPredicateBlock)(id subject);
 
 
+/// A reducer which filters a reducible.
+///
+/// \param collection The collection to filter.
+/// \param predicate The predicate to apply to each element.
+///
+/// \return A reducible which, when reduced, produces the elements of \c collection which are matched by \c predicate.
+id<REDReducible> REDFilter(id<REDReducible> collection, REDPredicateBlock predicate);
+
+
 #pragma mark Predicates
 
 /// A predicate which returns \c true.
