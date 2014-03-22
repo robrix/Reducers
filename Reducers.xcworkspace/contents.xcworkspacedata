@@ -4,4 +4,7 @@
    <FileRef
       location = "group:Reducers.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:External/Lagrangian/Lagrangian.xcodeproj">
+   </FileRef>
 </Workspace>
