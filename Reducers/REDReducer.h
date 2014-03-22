@@ -4,10 +4,10 @@
 
 /// A block which takes a reducing block and returns another reducing block which can be used to apply some transformation to the reduction.
 ///
-/// \param block The reducing block to transform.
+/// \param reduce The reducing block to transform.
 ///
 /// \return A reducing block which applies some transformation to the elements it reduces over.
-typedef REDReducingBlock (^REDReducingTransformerBlock)(REDReducingBlock block);
+typedef REDReducingBlock (^REDReducingTransformerBlock)(REDReducingBlock reduce);
 
 
 /// A reducible object which applies some transformation to the block it is reduced with.
