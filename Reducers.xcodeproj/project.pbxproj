@@ -17,6 +17,8 @@
 		D4ACA67818DDFAD700EBD899 /* REDReducer.m in Sources */ = {isa = PBXBuildFile; fileRef = D4ACA67618DDFAD700EBD899 /* REDReducer.m */; };
 		D4ACA67B18DE015A00EBD899 /* REDMap.h in Headers */ = {isa = PBXBuildFile; fileRef = D4ACA67918DE015A00EBD899 /* REDMap.h */; };
 		D4ACA67C18DE015A00EBD899 /* REDMap.m in Sources */ = {isa = PBXBuildFile; fileRef = D4ACA67A18DE015A00EBD899 /* REDMap.m */; };
+		D4ACA67F18DE0AC100EBD899 /* REDFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = D4ACA67D18DE0AC100EBD899 /* REDFilter.h */; };
+		D4ACA68018DE0AC100EBD899 /* REDFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = D4ACA67E18DE0AC100EBD899 /* REDFilter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +50,8 @@
 		D4ACA67618DDFAD700EBD899 /* REDReducer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDReducer.m; sourceTree = "<group>"; };
 		D4ACA67918DE015A00EBD899 /* REDMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDMap.h; sourceTree = "<group>"; };
 		D4ACA67A18DE015A00EBD899 /* REDMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDMap.m; sourceTree = "<group>"; };
+		D4ACA67D18DE0AC100EBD899 /* REDFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDFilter.h; sourceTree = "<group>"; };
+		D4ACA67E18DE0AC100EBD899 /* REDFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDFilter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +133,8 @@
 			children = (
 				D4ACA67518DDFAD700EBD899 /* REDReducer.h */,
 				D4ACA67618DDFAD700EBD899 /* REDReducer.m */,
+				D4ACA67D18DE0AC100EBD899 /* REDFilter.h */,
+				D4ACA67E18DE0AC100EBD899 /* REDFilter.m */,
 				D4ACA67918DE015A00EBD899 /* REDMap.h */,
 				D4ACA67A18DE015A00EBD899 /* REDMap.m */,
 			);
@@ -145,6 +151,7 @@
 				D4ACA66518DDED9900EBD899 /* Reducers.h in Headers */,
 				D4ACA66A18DDEE4500EBD899 /* REDReducible.h in Headers */,
 				D4ACA67718DDFAD700EBD899 /* REDReducer.h in Headers */,
+				D4ACA67F18DE0AC100EBD899 /* REDFilter.h in Headers */,
 				D4ACA67B18DE015A00EBD899 /* REDMap.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -237,6 +244,7 @@
 				D4ACA67818DDFAD700EBD899 /* REDReducer.m in Sources */,
 				D4ACA66B18DDEE4500EBD899 /* REDReducible.m in Sources */,
 				D4ACA67C18DE015A00EBD899 /* REDMap.m in Sources */,
+				D4ACA68018DE0AC100EBD899 /* REDFilter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
