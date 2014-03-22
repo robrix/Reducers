@@ -7,7 +7,7 @@
 
 id<REDReducible> REDMap(id<REDReducible> collection, REDMapBlock map) {
 	return [REDReducer reducerWithReducible:collection transformer:^(REDReducingBlock reduce) {
-		// Mapping each object before reducing.
+		// Map each object before reducing.
 		return ^(id into, id each) {
 			return reduce(into, map(each));
 		};
@@ -41,7 +41,7 @@ l3_test(&REDMap) {
 
 id<REDReducible> REDFlattenMap(id<REDReducible> collection, REDFlattenMapBlock map) {
 	return [REDReducer reducerWithReducible:collection transformer:^REDReducingBlock(REDReducingBlock reduce) {
-		// Map each reducible
+		// Reduce into each mapped object.
 		return ^(id into, id each) {
 			return [map(each) red_reduce:into usingBlock:reduce];
 		};
