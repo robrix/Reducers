@@ -6,6 +6,10 @@ Its advantages include lazy evaluation, few allocations, efficiency, and the pot
 
 This framework is an implementation of reducers for Cocoa and Cocoa Touch.
 
+## What would I use it for?
+
+Mapping, filtering, and folding Cocoa collections lazily, with low overhead.
+
 ## Examples
 
 First, import `Reducers/Reducers.h`:
