@@ -504,6 +504,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = Reducers;
 				PUBLIC_HEADERS_FOLDER_PATH = "$(PRODUCT_NAME) Headers";
+				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				STRIP_STYLE = "non-global";
 			};
@@ -516,6 +517,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = Reducers;
 				PUBLIC_HEADERS_FOLDER_PATH = "$(PRODUCT_NAME) Headers";
+				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				STRIP_STYLE = "non-global";
 			};
