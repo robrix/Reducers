@@ -41,7 +41,9 @@ Finally, we can place these views into the view hierarchy:
 
 Now let’s sum the numbers we produced:
 
-    NSNumber *sum = [evenNumbers red_reduce:@0 usingBlock:^(NSNumber *a, NSNumber *b) { return @(a.integerValue + b.integerValue); }];
+    NSNumber *sum = [evenNumbers red_reduce:@0 usingBlock:^(NSNumber *a, NSNumber *b) {
+        return @(a.integerValue + b.integerValue);
+    }];
 
 ## Notes
 
