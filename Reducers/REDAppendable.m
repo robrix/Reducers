@@ -1,6 +1,7 @@
 //  Copyright (c) 2014 Rob Rix. All rights reserved.
 
 #import "REDAppendable.h"
+#import "REDPair.h"
 
 #pragma mark Categories
 
@@ -14,7 +15,7 @@
 
 @implementation NSMutableArray (REDAppendable)
 
-static NSMutableArray *(^const REDMutableArrayAppend)(NSMutableArray *into, id each) = ^(NSMutableArray *into, id each){
+static NSMutableArray *(^const REDMutableArrayAppend)(NSMutableArray *, id) = ^(NSMutableArray *into, id each) {
 	[into addObject:each];
 	return into;
 };
@@ -45,7 +46,7 @@ l3_test(@selector(red_append:)) {
 
 @implementation NSMutableSet (REDAppendable)
 
-static NSMutableSet *(^const REDMutableSetAppend)(NSMutableSet *into, id each) = ^(NSMutableSet *into, id each){
+static NSMutableSet *(^const REDMutableSetAppend)(NSMutableSet *, id) = ^(NSMutableSet *into, id each) {
 	[into addObject:each];
 	return into;
 };
@@ -65,6 +66,35 @@ l3_test(@selector(red_append:)) {
 	NSMutableSet *initiallyEmptyMutableSet = [empty mutableCopy];
 	l3_expect([initiallyEmptyMutableSet red_append:anything]).to.equal(anything);
 	l3_expect(initiallyEmptyMutableSet).to.equal(anything);
+}
+
+@end
+
+
+@implementation NSDictionary (REDAppendable)
+
+-(instancetype)red_append:(id<REDReducible>)from {
+	return [[self mutableCopy] red_append:from];
+}
+
+@end
+
+@implementation NSMutableDictionary (REDAppendable)
+
+static NSMutableDictionary *(^const REDMutableDictionaryAppend)(NSMutableDictionary *, id) = ^(NSMutableDictionary *into, id<REDKeyValuePair> each) {
+	[into setObject:each.red_value forKey:each.red_key];
+	return into;
+};
+
+-(instancetype)red_append:(id<REDReducible>)from {
+	return [from red_reduce:self usingBlock:REDMutableDictionaryAppend];
+}
+
+l3_test(@selector(red_append:)) {
+	NSArray *pairs = @[ @[ @"key", @"value" ], @[ @"number", @3 ], @[ @"number", @4 ], ];
+	NSDictionary *expected = @{ @"key": @"value", @"number": @4, };
+	NSDictionary *empty = @{};
+	l3_expect([empty red_append:pairs]).to.equal(expected);
 }
 
 @end

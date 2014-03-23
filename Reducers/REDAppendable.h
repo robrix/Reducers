@@ -25,3 +25,10 @@
 /// \c NSSet conforms to \c REDAppendable.
 @interface NSSet (REDAppendable) <REDAppendable>
 @end
+
+
+/// \c NSDictionary conforms to \c REDAppendable.
+///
+/// The reducible being appended must produce objects conforming to \c REDKeyValuePair, and the pairs’ keys and values must not be nil.
+@interface NSDictionary (REDAppendable) <REDAppendable>
+@end

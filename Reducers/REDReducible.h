@@ -35,3 +35,10 @@ typedef id(^REDReducingBlock)(id into, id each);
 /// \c NSSet conforms to \c REDReducible.
 @interface NSSet (REDReducible) <REDReducible>
 @end
+
+
+/// \c NSDictionary conforms to \c REDReducible.
+///
+/// Reduction traverses the keys (as with \c NSFastEnumeration).
+@interface NSDictionary (REDReducible) <REDReducible>
+@end

@@ -36,3 +36,19 @@ l3_test(&REDStrictReduce) {
 }
 
 @end
+
+
+@implementation NSDictionary (REDReducible)
+
+-(id)red_reduce:(id)initial usingBlock:(REDReducingBlock)block {
+	return REDStrictReduce(self, initial, block);
+}
+
+l3_test(@selector(red_reduce:usingBlock:)) {
+	NSSet *(^append)(NSSet *, id) = ^(NSSet *into, id each) { return [into setByAddingObject:each]; };
+	NSDictionary *dictionary = @{ @"z": @'z', @"x": @'x', @"y": @'y', };
+	NSSet *into = [NSSet set];
+	l3_expect([dictionary red_reduce:into usingBlock:append]).to.equal([NSSet setWithArray:dictionary.allKeys]);
+}
+
+@end

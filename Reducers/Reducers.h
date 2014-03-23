@@ -4,6 +4,7 @@
 
 #import <Reducers/REDReducible.h>
 #import <Reducers/REDAppendable.h>
+#import <Reducers/REDPair.h>
 
 #pragma mark Reducers
 
