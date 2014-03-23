@@ -27,11 +27,11 @@ typedef id(^REDReducingBlock)(id into, id each);
 
 #pragma mark Categories
 
-/// \c NSArray conforms to \c REDReducible
+/// \c NSArray conforms to \c REDReducible.
 @interface NSArray (REDReducible) <REDReducible>
 @end
 
 
-/// \c NSSet conforms to \c REDReducible
+/// \c NSSet conforms to \c REDReducible.
 @interface NSSet (REDReducible) <REDReducible>
 @end
