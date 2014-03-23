@@ -43,3 +43,8 @@ Now let’s sum the numbers we produced:
 
     NSNumber *sum = [evenNumbers red_reduce:@0 usingBlock:^(NSNumber *a, NSNumber *b) { return @(a.integerValue + b.integerValue); }];
 
+## Notes
+
+Since reducers are evaluated lazily, you need to reduce them to produce a Cocoa collection. `-red_append:`, which is implemented on `NSArray`, `NSSet`, and `NSDictionary` reduces its argument, and is a convenient way to produce a concrete, evaluated collection using a reducer.
+
+API-level documentation is provided in the headers.
