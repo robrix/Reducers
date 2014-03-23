@@ -61,6 +61,10 @@ l3_test(@selector(red_append:)) {
 	NSArray *array = @[ @"c" ];
 	l3_expect([empty red_append:array]).to.equal([NSSet setWithArray:array]);
 	l3_expect([anything red_append:array]).to.equal([anything setByAddingObjectsFromArray:array]);
+	
+	NSMutableSet *initiallyEmptyMutableSet = [empty mutableCopy];
+	l3_expect([initiallyEmptyMutableSet red_append:anything]).to.equal(anything);
+	l3_expect(initiallyEmptyMutableSet).to.equal(anything);
 }
 
 @end
