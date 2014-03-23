@@ -19,7 +19,7 @@ First, import `Reducers/Reducers.h`:
 Let’s say we have some `numbers`, but we only want to operate on the even ones:
 
     id<REDReducible> evenNumbers = REDFilter(numbers, ^bool (NSNumber *each) {
-        return [each unsignedIntegerValue] % 2;
+        return each.integerValue % 2;
     });
 
 Now let’s make a text field for each:
@@ -27,7 +27,7 @@ Now let’s make a text field for each:
     id<REDReducible> views = REDMap(evenNumbers, ^(NSNumber *each) {
         NSTextField *textField = [NSTextField new];
         textField.editable = NO;
-        textField.stringValue = [each description];
+        textField.stringValue = each.description;
         return stringValue;
     });
 
@@ -38,3 +38,8 @@ Reducers are evaluated lazily, so we’ve specified a way of turning numbers int
 Finally, we can place these views into the view hierarchy:
 
     self.view = [NSStackView stackViewWithViews:viewsArray];
+
+Now let’s sum the numbers we produced:
+
+    NSNumber *sum = [evenNumbers red_reduce:@0 usingBlock:^(NSNumber *a, NSNumber *b) { return @(a.integerValue + b.integerValue); }];
+
