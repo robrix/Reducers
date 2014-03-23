@@ -1,3 +1,11 @@
 //  Copyright (c) 2014 Rob Rix. All rights reserved.
 
+#pragma mark Protocols & categories
+
 #import <Reducers/REDReducible.h>
+#import <Reducers/REDAppendable.h>
+
+#pragma mark Reducers
+
+#import <Reducers/REDMap.h>
+#import <Reducers/REDFilter.h>
