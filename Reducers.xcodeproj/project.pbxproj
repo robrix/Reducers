@@ -21,7 +21,7 @@
 		D4ACA68018DE0AC100EBD899 /* REDFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = D4ACA67E18DE0AC100EBD899 /* REDFilter.m */; };
 		D4ACA68318DE114900EBD899 /* REDAppendable.h in Headers */ = {isa = PBXBuildFile; fileRef = D4ACA68118DE114900EBD899 /* REDAppendable.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D4ACA68418DE114900EBD899 /* REDAppendable.m in Sources */ = {isa = PBXBuildFile; fileRef = D4ACA68218DE114900EBD899 /* REDAppendable.m */; };
-		D4ACA68818DF400A00EBD899 /* REDPair.h in Headers */ = {isa = PBXBuildFile; fileRef = D4ACA68618DF400A00EBD899 /* REDPair.h */; };
+		D4ACA68818DF400A00EBD899 /* REDPair.h in Headers */ = {isa = PBXBuildFile; fileRef = D4ACA68618DF400A00EBD899 /* REDPair.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D4ACA68B18DF440300EBD899 /* REDPair.m in Sources */ = {isa = PBXBuildFile; fileRef = D4ACA68A18DF440300EBD899 /* REDPair.m */; };
 /* End PBXBuildFile section */
 
