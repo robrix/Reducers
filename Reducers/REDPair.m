@@ -2,8 +2,14 @@
 
 #import "REDPair.h"
 
-@implementation REDPair
+@implementation NSArray (REDKeyValuePair)
 
+-(id<NSCopying>)red_key {
+	return self.firstObject;
+}
 
+-(id)red_value {
+	return self.lastObject;
+}
 
 @end

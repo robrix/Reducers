@@ -22,6 +22,7 @@
 		D4ACA68318DE114900EBD899 /* REDAppendable.h in Headers */ = {isa = PBXBuildFile; fileRef = D4ACA68118DE114900EBD899 /* REDAppendable.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D4ACA68418DE114900EBD899 /* REDAppendable.m in Sources */ = {isa = PBXBuildFile; fileRef = D4ACA68218DE114900EBD899 /* REDAppendable.m */; };
 		D4ACA68818DF400A00EBD899 /* REDPair.h in Headers */ = {isa = PBXBuildFile; fileRef = D4ACA68618DF400A00EBD899 /* REDPair.h */; };
+		D4ACA68B18DF440300EBD899 /* REDPair.m in Sources */ = {isa = PBXBuildFile; fileRef = D4ACA68A18DF440300EBD899 /* REDPair.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		D4ACA68118DE114900EBD899 /* REDAppendable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDAppendable.h; sourceTree = "<group>"; };
 		D4ACA68218DE114900EBD899 /* REDAppendable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDAppendable.m; sourceTree = "<group>"; };
 		D4ACA68618DF400A00EBD899 /* REDPair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDPair.h; sourceTree = "<group>"; };
+		D4ACA68A18DF440300EBD899 /* REDPair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDPair.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +124,7 @@
 				D4ACA68118DE114900EBD899 /* REDAppendable.h */,
 				D4ACA68218DE114900EBD899 /* REDAppendable.m */,
 				D4ACA68618DF400A00EBD899 /* REDPair.h */,
+				D4ACA68A18DF440300EBD899 /* REDPair.m */,
 				D4ACA64118DDEC4900EBD899 /* Supporting Files */,
 			);
 			path = Reducers;
@@ -255,6 +258,7 @@
 				D4ACA67818DDFAD700EBD899 /* REDReducer.m in Sources */,
 				D4ACA68418DE114900EBD899 /* REDAppendable.m in Sources */,
 				D4ACA66B18DDEE4500EBD899 /* REDReducible.m in Sources */,
+				D4ACA68B18DF440300EBD899 /* REDPair.m in Sources */,
 				D4ACA67C18DE015A00EBD899 /* REDMap.m in Sources */,
 				D4ACA68018DE0AC100EBD899 /* REDFilter.m in Sources */,
 			);

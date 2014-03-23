@@ -16,3 +16,12 @@
 @property (readonly) id red_value;
 
 @end
+
+
+#pragma mark Categories
+
+/// \c NSArray conforms to \c REDKeyValuePair.
+///
+/// \c firstObject is assumed to be the key, and \c lastObject is assumed to be the value.
+@interface NSArray (REDKeyValuePair) <REDKeyValuePair>
+@end
