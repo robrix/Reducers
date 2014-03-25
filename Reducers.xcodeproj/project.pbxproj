@@ -635,6 +635,7 @@
 				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_FRAMEWORKS_DIR)";
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = "Reducers/Reducers-Info.plist";
+				INSTALL_PATH = "@rpath";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = framework;
 			};
@@ -649,6 +650,7 @@
 				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_FRAMEWORKS_DIR)";
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = "Reducers/Reducers-Info.plist";
+				INSTALL_PATH = "@rpath";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = framework;
 			};
@@ -692,6 +694,7 @@
 				D46D2B7018E11E490065701D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D46D2B8518E11E810065701D /* Build configuration list for PBXNativeTarget "Reducers iOS Tests" */ = {
 			isa = XCConfigurationList;
@@ -700,6 +703,7 @@
 				D46D2B8718E11E810065701D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D4ACA63118DDEC4900EBD899 /* Build configuration list for PBXProject "Reducers" */ = {
 			isa = XCConfigurationList;
