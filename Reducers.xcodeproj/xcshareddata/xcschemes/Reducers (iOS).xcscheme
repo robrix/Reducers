@@ -20,20 +20,6 @@
                ReferencedContainer = "container:Reducers.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "NO"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D4ACA64D18DDEC4A00EBD899"
-               BuildableName = "ReducersTests.xctest"
-               BlueprintName = "ReducersTests"
-               ReferencedContainer = "container:Reducers.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -46,9 +32,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D4ACA64D18DDEC4A00EBD899"
-               BuildableName = "ReducersTests.xctest"
-               BlueprintName = "ReducersTests"
+               BlueprintIdentifier = "D46D2B7418E11E800065701D"
+               BuildableName = "Reducers iOS Tests.xctest"
+               BlueprintName = "Reducers iOS Tests"
                ReferencedContainer = "container:Reducers.xcodeproj">
             </BuildableReference>
          </TestableReference>

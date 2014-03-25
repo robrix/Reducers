@@ -32,9 +32,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D4ACA64D18DDEC4A00EBD899"
-               BuildableName = "ReducersTests.xctest"
-               BlueprintName = "ReducersTests"
+               BlueprintIdentifier = "D46D2B6018E11E490065701D"
+               BuildableName = "Reducers Tests.xctest"
+               BlueprintName = "Reducers Mac Tests"
                ReferencedContainer = "container:Reducers.xcodeproj">
             </BuildableReference>
          </TestableReference>
