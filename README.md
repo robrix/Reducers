@@ -28,7 +28,7 @@ Now let’s make a text field for each:
         NSTextField *textField = [NSTextField new];
         textField.editable = NO;
         textField.stringValue = each.description;
-        return stringValue;
+        return textField;
     });
 
 Reducers are evaluated lazily, so we’ve specified a way of turning numbers into text fields with even numbers, but we haven’t yet got a collection of the text fields. We can produce one by appending onto an array:
