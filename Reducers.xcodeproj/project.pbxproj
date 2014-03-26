@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D40D7B2518E282490065BB70 /* Reducers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4ACA63718DDEC4900EBD899 /* Reducers.framework */; };
 		D46D2B6218E11E490065701D /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4ACA64F18DDEC4A00EBD899 /* XCTest.framework */; };
 		D46D2B6A18E11E490065701D /* Reducers_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = D46D2B6918E11E490065701D /* Reducers_Tests.m */; };
 		D46D2B7618E11E800065701D /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4ACA64F18DDEC4A00EBD899 /* XCTest.framework */; };
@@ -107,6 +108,7 @@
 			files = (
 				D46D2B6218E11E490065701D /* XCTest.framework in Frameworks */,
 				D46D2B9718E1E3910065701D /* Lagrangian.framework in Frameworks */,
+				D40D7B2518E282490065BB70 /* Reducers.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
