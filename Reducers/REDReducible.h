@@ -42,3 +42,10 @@ typedef id(^REDReducingBlock)(id into, id each);
 /// Reduction traverses the keys (as with \c NSFastEnumeration).
 @interface NSDictionary (REDReducible) <REDReducible>
 @end
+
+
+/// \c NSString conforms to \c REDReducible.
+///
+/// Reduction is 
+@interface NSString (REDReducible) <REDReducible>
+@end

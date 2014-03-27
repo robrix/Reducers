@@ -52,3 +52,22 @@ l3_test(@selector(red_reduce:usingBlock:)) {
 }
 
 @end
+
+
+@implementation NSString (REDReducible)
+
+-(id)red_reduce:(id)initial usingBlock:(REDReducingBlock)block {
+	__block id result = initial;
+	[self enumerateSubstringsInRange:(NSRange){ .length = self.length } options:NSStringEnumerationByComposedCharacterSequences usingBlock:^(NSString *substring, NSRange substringRange, NSRange enclosingRange, BOOL *stop) {
+		result = block(initial, substring);
+	}];
+	return result;
+}
+
+l3_test(@selector(red_reduce:usingBlock:)) {
+	NSString *(^append)(NSString *, id) = ^(NSString *into, NSString *each) { return [into stringByAppendingString:each]; };
+	NSString *original = @"12345∆π¬µ∂🚑👖🐢🎈🔄";
+	l3_expect([original red_reduce:@"" usingBlock:append]).to.equal(original);
+}
+
+@end

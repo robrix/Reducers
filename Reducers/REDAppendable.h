@@ -32,3 +32,10 @@
 /// The reducible being appended must produce objects conforming to \c REDKeyValuePair, and the pairs’ keys and values must not be nil.
 @interface NSDictionary (REDAppendable) <REDAppendable>
 @end
+
+
+/// \c NSString conforms to \c REDAppendable.
+///
+/// The reducible being appended will have \c -description called on each of its elements, and those descriptions will be appended onto the receiver.
+@interface NSString (REDAppendable) <REDAppendable>
+@end
