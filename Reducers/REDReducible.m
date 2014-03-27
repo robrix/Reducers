@@ -59,7 +59,7 @@ l3_test(@selector(red_reduce:usingBlock:)) {
 -(id)red_reduce:(id)initial usingBlock:(REDReducingBlock)block {
 	__block id result = initial;
 	[self enumerateSubstringsInRange:(NSRange){ .length = self.length } options:NSStringEnumerationByComposedCharacterSequences usingBlock:^(NSString *substring, NSRange substringRange, NSRange enclosingRange, BOOL *stop) {
-		result = block(initial, substring);
+		result = block(result, substring);
 	}];
 	return result;
 }
