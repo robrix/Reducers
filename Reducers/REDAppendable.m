@@ -98,3 +98,25 @@ l3_test(@selector(red_append:)) {
 }
 
 @end
+
+
+@implementation NSString (REDAppendable)
+
+static NSMutableString *(^const REDMutableStringAppend)(NSMutableString *, id) = ^(NSMutableString *into, id each) {
+	[into appendString:[each description]];
+	return into;
+};
+
+-(instancetype)red_append:(id<REDReducible>)from {
+	return [from red_reduce:[self mutableCopy] usingBlock:REDMutableStringAppend];
+}
+
+l3_test(@selector(red_append:)) {
+	NSArray *collection = @[ @1, @2, @3 ];
+	NSString *anything = @"prefix";
+	NSString *empty = @"";
+	l3_expect([empty red_append:collection]).to.equal(@"123");
+	l3_expect([anything red_append:collection]).to.equal(@"prefix123");
+}
+
+@end
