@@ -7,21 +7,13 @@
 
 @implementation NSArray (REDAppendable)
 
--(instancetype)red_append:(id<REDReducible>)from {
-	return [[self mutableCopy] red_append:from];
-}
-
-@end
-
-@implementation NSMutableArray (REDAppendable)
-
 static NSMutableArray *(^const REDMutableArrayAppend)(NSMutableArray *, id) = ^(NSMutableArray *into, id each) {
 	[into addObject:each];
 	return into;
 };
 
 -(instancetype)red_append:(id<REDReducible>)from {
-	return [from red_reduce:self usingBlock:REDMutableArrayAppend];
+	return [from red_reduce:[self mutableCopy] usingBlock:REDMutableArrayAppend];
 }
 
 l3_test(@selector(red_append:)) {
@@ -38,21 +30,13 @@ l3_test(@selector(red_append:)) {
 
 @implementation NSSet (REDAppendable)
 
--(instancetype)red_append:(id<REDReducible>)from {
-	return [[self mutableCopy] red_append:from];
-}
-
-@end
-
-@implementation NSMutableSet (REDAppendable)
-
 static NSMutableSet *(^const REDMutableSetAppend)(NSMutableSet *, id) = ^(NSMutableSet *into, id each) {
 	[into addObject:each];
 	return into;
 };
 
 -(instancetype)red_append:(id<REDReducible>)from {
-	return [from red_reduce:self usingBlock:REDMutableSetAppend];
+	return [from red_reduce:[self mutableCopy] usingBlock:REDMutableSetAppend];
 }
 
 l3_test(@selector(red_append:)) {
@@ -73,21 +57,13 @@ l3_test(@selector(red_append:)) {
 
 @implementation NSDictionary (REDAppendable)
 
--(instancetype)red_append:(id<REDReducible>)from {
-	return [[self mutableCopy] red_append:from];
-}
-
-@end
-
-@implementation NSMutableDictionary (REDAppendable)
-
 static NSMutableDictionary *(^const REDMutableDictionaryAppend)(NSMutableDictionary *, id) = ^(NSMutableDictionary *into, id<REDKeyValuePair> each) {
 	[into setObject:each.red_value forKey:each.red_key];
 	return into;
 };
 
 -(instancetype)red_append:(id<REDReducible>)from {
-	return [from red_reduce:self usingBlock:REDMutableDictionaryAppend];
+	return [from red_reduce:[self mutableCopy] usingBlock:REDMutableDictionaryAppend];
 }
 
 l3_test(@selector(red_append:)) {
