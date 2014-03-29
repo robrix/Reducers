@@ -92,3 +92,26 @@ l3_test(@selector(red_append:)) {
 }
 
 @end
+
+
+@implementation NSAttributedString (REDAppendable)
+
+static NSMutableAttributedString *(^const REDMutableAttributedStringAppend)(NSMutableAttributedString *, NSAttributedString *) = ^(NSMutableAttributedString *into, NSAttributedString *each) {
+	[into appendAttributedString:each];
+	return into;
+};
+
+-(instancetype)red_append:(id<REDReducible>)from {
+	return [from red_reduce:[self mutableCopy] usingBlock:REDMutableAttributedStringAppend];
+}
+
+l3_test(@selector(red_append:)) {
+	NSDictionary *attributes = @{ @"key": @"value" };
+	NSAttributedString *attributedString = [[NSAttributedString alloc] initWithString:@"v" attributes:attributes];
+	NSAttributedString *empty = [NSAttributedString new];
+	NSAttributedString *joined = [[NSAttributedString alloc] initWithString:@"vvv" attributes:attributes];
+	id<REDReducible> all = @[ attributedString, attributedString, attributedString ];
+	l3_expect([empty red_append:all]).to.equal(joined);
+}
+
+@end

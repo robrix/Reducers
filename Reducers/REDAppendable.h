@@ -39,3 +39,9 @@
 /// The reducible being appended will have \c -description called on each of its elements, and those descriptions will be appended onto the receiver.
 @interface NSString (REDAppendable) <REDAppendable>
 @end
+
+
+/// \c NSAttributedString conforms to \c REDAppendable.
+@interface NSAttributedString (REDAppendable) <REDAppendable>
+@end
+
