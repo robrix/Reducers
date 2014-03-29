@@ -71,3 +71,26 @@ l3_test(@selector(red_reduce:usingBlock:)) {
 }
 
 @end
+
+
+@implementation NSAttributedString (REDReducible)
+
+-(id)red_reduce:(id)initial usingBlock:(REDReducingBlock)block {
+	__block id result = initial;
+	[self.string enumerateSubstringsInRange:(NSRange){ .length = self.length } options:NSStringEnumerationByComposedCharacterSequences usingBlock:^(NSString *substring, NSRange substringRange, NSRange enclosingRange, BOOL *stop) {
+		result = block(result, [self attributedSubstringFromRange:substringRange]);
+	}];
+	return result;
+}
+
+l3_test(@selector(red_reduce:usingBlock:)) {
+	NSAttributedString *(^append)(NSAttributedString *, NSAttributedString *) = ^(NSAttributedString *into, NSAttributedString *each) {
+		NSMutableAttributedString *copy = [into mutableCopy];
+		[copy appendAttributedString:each];
+		return copy;
+	};
+	NSAttributedString *original = [[NSAttributedString alloc] initWithString:@"♬🐡😠" attributes:@{ @"key": @"value" }];
+	l3_expect([original red_reduce:[NSAttributedString new] usingBlock:append]).to.equal(original);
+}
+
+@end
