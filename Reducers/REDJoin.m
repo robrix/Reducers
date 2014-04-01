@@ -1,9 +1,19 @@
 //  Copyright (c) 2014 Rob Rix. All rights reserved.
 
 #import "REDJoin.h"
+#import "REDReducer.h"
 
 id<REDReducible> REDJoin(id<REDReducible> collection, id separator) {
-	return nil;
+	return [REDReducer reducerWithReducible:collection transformer:^REDReducingBlock(REDReducingBlock reduce) {
+		__block id currentSeparator;
+		return ^(id into, id each) {
+			into = currentSeparator?
+				reduce(into, currentSeparator)
+			:	into;
+			currentSeparator = separator;
+			return reduce(into, each);
+		};
+	}];
 }
 
 l3_addTestSubjectTypeWithFunction(REDJoin)
