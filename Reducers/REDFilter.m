@@ -7,6 +7,7 @@
 
 id<REDReducible> REDFilter(id<REDReducible> collection, REDPredicateBlock predicate) {
 	return [REDReducer reducerWithReducible:collection transformer:^REDReducingBlock(REDReducingBlock reduce) {
+		// Reduce only those elements which match the predicate.
 		return ^(id into, id each) {
 			return predicate(each)?
 				reduce(into, each)

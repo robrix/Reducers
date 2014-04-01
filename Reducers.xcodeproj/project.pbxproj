@@ -34,6 +34,10 @@
 		D4ACA68418DE114900EBD899 /* REDAppendable.m in Sources */ = {isa = PBXBuildFile; fileRef = D4ACA68218DE114900EBD899 /* REDAppendable.m */; };
 		D4ACA68818DF400A00EBD899 /* REDPair.h in Headers */ = {isa = PBXBuildFile; fileRef = D4ACA68618DF400A00EBD899 /* REDPair.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D4ACA68B18DF440300EBD899 /* REDPair.m in Sources */ = {isa = PBXBuildFile; fileRef = D4ACA68A18DF440300EBD899 /* REDPair.m */; };
+		D4C87CCF18EB536500567D57 /* REDJoin.h in Headers */ = {isa = PBXBuildFile; fileRef = D4C87CCD18EB536500567D57 /* REDJoin.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D4C87CD018EB536500567D57 /* REDJoin.h in Headers */ = {isa = PBXBuildFile; fileRef = D4C87CCD18EB536500567D57 /* REDJoin.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D4C87CD118EB536500567D57 /* REDJoin.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C87CCE18EB536500567D57 /* REDJoin.m */; };
+		D4C87CD218EB536500567D57 /* REDJoin.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C87CCE18EB536500567D57 /* REDJoin.m */; };
 		D4CE31F218DF598B00CADB65 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4CE31F118DF598B00CADB65 /* Foundation.framework */; };
 		D4CE31FB18DF599F00CADB65 /* Reducers.h in Headers */ = {isa = PBXBuildFile; fileRef = D4ACA64718DDEC4900EBD899 /* Reducers.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D4CE31FC18DF5A4800CADB65 /* REDMap.m in Sources */ = {isa = PBXBuildFile; fileRef = D4ACA67A18DE015A00EBD899 /* REDMap.m */; };
@@ -97,6 +101,8 @@
 		D4ACA68218DE114900EBD899 /* REDAppendable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDAppendable.m; sourceTree = "<group>"; };
 		D4ACA68618DF400A00EBD899 /* REDPair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDPair.h; sourceTree = "<group>"; };
 		D4ACA68A18DF440300EBD899 /* REDPair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDPair.m; sourceTree = "<group>"; };
+		D4C87CCD18EB536500567D57 /* REDJoin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDJoin.h; sourceTree = "<group>"; };
+		D4C87CCE18EB536500567D57 /* REDJoin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDJoin.m; sourceTree = "<group>"; };
 		D4CE31F018DF598B00CADB65 /* libReducers.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libReducers.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4CE31F118DF598B00CADB65 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
@@ -242,6 +248,8 @@
 				D4ACA67E18DE0AC100EBD899 /* REDFilter.m */,
 				D4ACA67918DE015A00EBD899 /* REDMap.h */,
 				D4ACA67A18DE015A00EBD899 /* REDMap.m */,
+				D4C87CCD18EB536500567D57 /* REDJoin.h */,
+				D4C87CCE18EB536500567D57 /* REDJoin.m */,
 			);
 			name = Reducers;
 			sourceTree = "<group>";
@@ -255,6 +263,7 @@
 			files = (
 				D4ACA68318DE114900EBD899 /* REDAppendable.h in Headers */,
 				D4ACA66518DDED9900EBD899 /* Reducers.h in Headers */,
+				D4C87CCF18EB536500567D57 /* REDJoin.h in Headers */,
 				D4ACA68818DF400A00EBD899 /* REDPair.h in Headers */,
 				D4ACA66A18DDEE4500EBD899 /* REDReducible.h in Headers */,
 				D4ACA67718DDFAD700EBD899 /* REDReducer.h in Headers */,
@@ -269,6 +278,7 @@
 			files = (
 				D4CE320618DF5A8C00CADB65 /* REDFilter.h in Headers */,
 				D4CE31FD18DF5A4A00CADB65 /* REDAppendable.h in Headers */,
+				D4C87CD018EB536500567D57 /* REDJoin.h in Headers */,
 				D4CE31FF18DF5A5600CADB65 /* REDMap.h in Headers */,
 				D4CE320018DF5A5E00CADB65 /* REDPair.h in Headers */,
 				D4CE320418DF5A8500CADB65 /* REDReducer.h in Headers */,
@@ -455,6 +465,7 @@
 			files = (
 				D4ACA67818DDFAD700EBD899 /* REDReducer.m in Sources */,
 				D4ACA68418DE114900EBD899 /* REDAppendable.m in Sources */,
+				D4C87CD118EB536500567D57 /* REDJoin.m in Sources */,
 				D4ACA66B18DDEE4500EBD899 /* REDReducible.m in Sources */,
 				D4ACA68B18DF440300EBD899 /* REDPair.m in Sources */,
 				D4ACA67C18DE015A00EBD899 /* REDMap.m in Sources */,
@@ -468,6 +479,7 @@
 			files = (
 				D4CE320118DF5A6200CADB65 /* REDPair.m in Sources */,
 				D4CE320718DF5A9100CADB65 /* REDFilter.m in Sources */,
+				D4C87CD218EB536500567D57 /* REDJoin.m in Sources */,
 				D4CE31FC18DF5A4800CADB65 /* REDMap.m in Sources */,
 				D4CE31FE18DF5A5300CADB65 /* REDAppendable.m in Sources */,
 				D4CE320218DF5A6700CADB65 /* REDReducible.m in Sources */,

@@ -57,10 +57,8 @@ l3_test(&REDFlattenMap) {
 	id<REDReducible> flattened = @[ @4, @3, @2, @1 ];
 	l3_expect([REDFlattenMap(nestedCollection, REDIdentityMapBlock) red_reduce:into usingBlock:append]).to.equal(flattened);
 	
-	REDFlattenMapBlock expand = ^(id each) {
-		return @[ each ];
-	};
-	l3_expect([REDFlattenMap(flattened, expand) red_reduce:into usingBlock:append]).to.equal(flattened);
+	REDFlattenMapBlock wrap = ^(id each) { return @[ each ]; };
+	l3_expect([REDFlattenMap(flattened, wrap) red_reduce:into usingBlock:append]).to.equal(flattened);
 }
 
 
