@@ -2,4 +2,4 @@
 
 #import <Reducers/REDReducible.h>
 
-id<REDReducible> REDJoin(id<REDReducible> from, id separator);
+id<REDReducible> REDJoin(id<REDReducible> collection, id separator);
