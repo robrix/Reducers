@@ -6,6 +6,7 @@
 id<REDReducible> REDJoin(id<REDReducible> collection, id separator) {
 	return [REDReducer reducerWithReducible:collection transformer:^REDReducingBlock(REDReducingBlock reduce) {
 		__block id currentSeparator;
+		// Reduce as normal on the first call, and into the reduction of the separator on subsequent calls.
 		return ^(id into, id each) {
 			into = currentSeparator?
 				reduce(into, currentSeparator)
