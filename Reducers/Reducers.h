@@ -10,3 +10,4 @@
 
 #import <Reducers/REDMap.h>
 #import <Reducers/REDFilter.h>
+#import <Reducers/REDJoin.h>
