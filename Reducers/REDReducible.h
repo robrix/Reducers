@@ -37,6 +37,11 @@ typedef id(^REDReducingBlock)(id into, id each);
 @end
 
 
+/// \c NSOrderedSet conforms to \c REDReducible.
+@interface NSOrderedSet (REDReducible) <REDReducible>
+@end
+
+
 /// \c NSDictionary conforms to \c REDReducible.
 ///
 /// Reduction traverses the keys (as with \c NSFastEnumeration).

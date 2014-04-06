@@ -38,6 +38,21 @@ l3_test(&REDStrictReduce) {
 @end
 
 
+@implementation NSOrderedSet (REDReducible)
+
+-(id)red_reduce:(id)initial usingBlock:(REDReducingBlock)block {
+	return REDStrictReduce(self, initial, block);
+}
+
+l3_test(@selector(red_reduce:usingBlock:)) {
+	NSOrderedSet *orderedSet = [NSOrderedSet orderedSetWithObjects:@0, @5, @3, @1, nil];
+	NSNumber *(^subtract)(NSNumber *, NSNumber *) = ^(NSNumber *into, NSNumber *each) { return @(into.integerValue - each.integerValue); };
+	l3_expect([orderedSet red_reduce:@0 usingBlock:subtract]).to.equal(@-9);
+}
+
+@end
+
+
 @implementation NSDictionary (REDReducible)
 
 -(id)red_reduce:(id)initial usingBlock:(REDReducingBlock)block {
