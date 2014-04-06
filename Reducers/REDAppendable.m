@@ -3,8 +3,6 @@
 #import "REDAppendable.h"
 #import "REDPair.h"
 
-#pragma mark Categories
-
 @implementation NSArray (REDAppendable)
 
 static NSMutableArray *(^const REDMutableArrayAppend)(NSMutableArray *, id) = ^(NSMutableArray *into, id each) {
@@ -46,6 +44,28 @@ l3_test(@selector(red_append:)) {
 	NSArray *array = @[ @"c" ];
 	l3_expect([empty red_append:array]).to.equal([NSSet setWithArray:array]);
 	l3_expect([anything red_append:array]).to.equal([anything setByAddingObjectsFromArray:array]);
+}
+
+@end
+
+
+@implementation NSOrderedSet (REDAppendable)
+
+static NSMutableOrderedSet *(^const REDMutableOrderedSetAppend)(NSMutableOrderedSet *, id) = ^(NSMutableOrderedSet *into, id each) {
+	[into addObject:each];
+	return into;
+};
+
+-(instancetype)red_append:(id<REDReducible>)from {
+	return [from red_reduce:[self mutableCopy] usingBlock:REDMutableOrderedSetAppend];
+}
+
+l3_test(@selector(red_append:)) {
+	NSOrderedSet *orderedSet = [NSOrderedSet orderedSetWithObjects:@0, @1, @2, nil];
+	NSArray *intersecting = @[ @2, @0, @1, @3, @4, @5 ];
+	NSMutableOrderedSet *unionOrderedSet = [orderedSet mutableCopy];
+	[unionOrderedSet addObjectsFromArray:intersecting];
+	l3_expect([orderedSet red_append:intersecting]).to.equal(unionOrderedSet);
 }
 
 @end
