@@ -23,6 +23,11 @@ l3_test(@selector(red_append:)) {
 	l3_expect([anything red_append:set]).to.equal([anything arrayByAddingObjectsFromArray:set.allObjects]);
 }
 
+
++(NSArray *)red_append:(id<REDReducible>)from {
+	return [[self new] red_append:from];
+}
+
 @end
 
 
@@ -44,6 +49,11 @@ l3_test(@selector(red_append:)) {
 	NSArray *array = @[ @"c" ];
 	l3_expect([empty red_append:array]).to.equal([NSSet setWithArray:array]);
 	l3_expect([anything red_append:array]).to.equal([anything setByAddingObjectsFromArray:array]);
+}
+
+
++(NSSet *)red_append:(id<REDReducible>)from {
+	return [[self new] red_append:from];
 }
 
 @end
@@ -68,6 +78,11 @@ l3_test(@selector(red_append:)) {
 	l3_expect([orderedSet red_append:intersecting]).to.equal(unionOrderedSet);
 }
 
+
++(NSOrderedSet *)red_append:(id<REDReducible>)from {
+	return [[self new] red_append:from];
+}
+
 @end
 
 
@@ -87,6 +102,11 @@ l3_test(@selector(red_append:)) {
 	NSDictionary *expected = @{ @"key": @"value", @"number": @4, };
 	NSDictionary *empty = @{};
 	l3_expect([empty red_append:pairs]).to.equal(expected);
+}
+
+
++(NSDictionary *)red_append:(id<REDReducible>)from {
+	return [[self new] red_append:from];
 }
 
 @end
@@ -111,6 +131,11 @@ l3_test(@selector(red_append:)) {
 	l3_expect([anything red_append:collection]).to.equal(@"prefix123");
 }
 
+
++(NSString *)red_append:(id<REDReducible>)from {
+	return [[self new] red_append:from];
+}
+
 @end
 
 
@@ -132,6 +157,11 @@ l3_test(@selector(red_append:)) {
 	NSAttributedString *joined = [[NSAttributedString alloc] initWithString:@"vvv" attributes:attributes];
 	id<REDReducible> all = @[ attributedString, attributedString, attributedString ];
 	l3_expect([empty red_append:all]).to.equal(joined);
+}
+
+
++(NSAttributedString *)red_append:(id<REDReducible>)from {
+	return [[self new] red_append:from];
 }
 
 @end

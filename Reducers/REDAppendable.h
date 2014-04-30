@@ -12,6 +12,9 @@
 /// \return An appendable with the objects in \c from appended onto it. This should generally be a (presumably immutable) copy, and thus, where applicable, should be typed as the receiving class’ immutable superclass, rather than \c instancetype.
 -(instancetype)red_append:(id<REDReducible>)from;
 
+/// Calls \c -red_append: on an empty instance of \c self.
++(instancetype)red_append:(id<REDReducible>)from;
+
 @end
 
 
