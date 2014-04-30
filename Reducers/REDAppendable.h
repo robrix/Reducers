@@ -5,14 +5,16 @@
 /// A collection or other object which can be appended onto.
 @protocol REDAppendable <NSObject>
 
-/// Append the objects in \c from onto \c self.
+/// Append the objects in \c from onto the receiver.
 ///
-/// \param from The reducible to append onto \c self.
-///
-/// \return An appendable with the objects in \c from appended onto it. This should generally be a (presumably immutable) copy, and thus, where applicable, should be typed as the receiving class’ immutable superclass, rather than \c instancetype.
+/// \param from  The reducible to append onto the receiver.
+/// \return      An appendable with the objects in \c from appended onto it. This should generally be a (presumably immutable) copy, and thus, where applicable, should be typed as the receiving class’ immutable superclass, rather than \c instancetype.
 -(instancetype)red_append:(id<REDReducible>)from;
 
 /// Calls \c -red_append: on an empty instance of \c self.
+///
+/// \param from  The reducible to append onto a new, empty instance of the receiver.
+/// \return      A new appendable with the objects in \c from appended onto it.
 +(instancetype)red_append:(id<REDReducible>)from;
 
 @end
