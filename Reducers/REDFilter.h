@@ -21,6 +21,16 @@ typedef bool (^REDPredicateBlock)(id subject);
 id<REDReducible> REDFilter(id<REDReducible> collection, REDPredicateBlock predicate);
 
 
+#pragma mark Linear search
+
+/// Searches a reducible, returning the first object which matches a predicate.
+///
+/// \param collection  The collection to search.
+/// \param predicate   The predicate to apply to each element.
+/// \return            The first element of \c collection which matches \c predicate, or nil if no elements match.
+id REDLinearSearch(id<REDReducible> collection, REDPredicateBlock predicate);
+
+
 #pragma mark Predicates
 
 /// A predicate which returns \c true.

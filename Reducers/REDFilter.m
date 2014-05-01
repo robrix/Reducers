@@ -27,6 +27,25 @@ l3_test(&REDFilter) {
 }
 
 
+#pragma mark Linear search
+
+id REDLinearSearch(id<REDReducible> collection, REDPredicateBlock predicate) {
+	return [collection red_reduce:nil usingBlock:^(id into, id each) {
+		return !into && predicate(each)?
+			each
+		:	into;
+	}];
+}
+
+l3_addTestSubjectTypeWithFunction(REDLinearSearch)
+l3_test(&REDLinearSearch) {
+	id collection = @[ @"aardvarks", @"fish", @"penguins", @"sheep", @"moose" ];
+	NSArray *filtered = @[ @"aardvarks", @"penguins" ];
+	REDPredicateBlock predicate = ^bool (NSString *subject) { return [subject hasSuffix:@"s"]; };
+	l3_expect(REDLinearSearch(collection, predicate)).to.equal(filtered.firstObject);
+}
+
+
 #pragma mark Predicates
 
 REDPredicateBlock const REDTruePredicateBlock = ^bool (id _) {
