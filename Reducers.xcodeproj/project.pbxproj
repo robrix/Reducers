@@ -52,6 +52,8 @@
 		D4CE320518DF5A8900CADB65 /* REDReducer.m in Sources */ = {isa = PBXBuildFile; fileRef = D4ACA67618DDFAD700EBD899 /* REDReducer.m */; };
 		D4CE320618DF5A8C00CADB65 /* REDFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = D4ACA67D18DE0AC100EBD899 /* REDFilter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D4CE320718DF5A9100CADB65 /* REDFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = D4ACA67E18DE0AC100EBD899 /* REDFilter.m */; };
+		D4DB7F301912A4B200E5CD5F /* REDConvolve.h in Headers */ = {isa = PBXBuildFile; fileRef = D4DB7F2E1912A4B200E5CD5F /* REDConvolve.h */; };
+		D4DB7F311912A4B200E5CD5F /* REDConvolve.m in Sources */ = {isa = PBXBuildFile; fileRef = D4DB7F2F1912A4B200E5CD5F /* REDConvolve.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +107,8 @@
 		D4C87CCE18EB536500567D57 /* REDJoin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDJoin.m; sourceTree = "<group>"; };
 		D4CE31F018DF598B00CADB65 /* libReducers.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libReducers.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4CE31F118DF598B00CADB65 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		D4DB7F2E1912A4B200E5CD5F /* REDConvolve.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDConvolve.h; sourceTree = "<group>"; };
+		D4DB7F2F1912A4B200E5CD5F /* REDConvolve.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDConvolve.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -250,6 +254,8 @@
 				D4ACA67A18DE015A00EBD899 /* REDMap.m */,
 				D4C87CCD18EB536500567D57 /* REDJoin.h */,
 				D4C87CCE18EB536500567D57 /* REDJoin.m */,
+				D4DB7F2E1912A4B200E5CD5F /* REDConvolve.h */,
+				D4DB7F2F1912A4B200E5CD5F /* REDConvolve.m */,
 			);
 			name = Reducers;
 			sourceTree = "<group>";
@@ -269,6 +275,7 @@
 				D4ACA67718DDFAD700EBD899 /* REDReducer.h in Headers */,
 				D4ACA67F18DE0AC100EBD899 /* REDFilter.h in Headers */,
 				D4ACA67B18DE015A00EBD899 /* REDMap.h in Headers */,
+				D4DB7F301912A4B200E5CD5F /* REDConvolve.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -470,6 +477,7 @@
 				D4ACA68B18DF440300EBD899 /* REDPair.m in Sources */,
 				D4ACA67C18DE015A00EBD899 /* REDMap.m in Sources */,
 				D4ACA68018DE0AC100EBD899 /* REDFilter.m in Sources */,
+				D4DB7F311912A4B200E5CD5F /* REDConvolve.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
