@@ -20,6 +20,24 @@ l3_test(&REDStrictReduce) {
 }
 
 
+static inline id REDStrictReduceRight(id<NSFastEnumeration> collection, id initial, REDReducingBlock block) {
+	id (^into)(id) = ^(id x) { return x; };
+	for (id each in collection) {
+		into = ^(id rest) {
+			return into(block(rest, each));
+		};
+	}
+	return into(initial);
+}
+
+l3_test(&REDStrictReduceRight) {
+	NSArray *collection = @[ @"a", @"b", @"c" ];
+	id initial = @"";
+	id (^each)(id, id) = ^(id into, id each) { return each; };
+	l3_expect(REDStrictReduceRight(collection, initial, each)).to.equal(collection.firstObject);
+}
+
+
 @implementation NSArray (REDReducible)
 
 -(id)red_reduce:(id)initial usingBlock:(REDReducingBlock)block {
