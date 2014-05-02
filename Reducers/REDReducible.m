@@ -15,8 +15,8 @@ l3_addTestSubjectTypeWithFunction(REDStrictReduce)
 l3_test(&REDStrictReduce) {
 	NSArray *collection = @[ @"a", @"b", @"c" ];
 	id initial;
-	id (^lastObject)(id, id) = ^(id into, id each) { return each; };
-	l3_expect(REDStrictReduce(collection, initial, lastObject)).to.equal(collection.lastObject);
+	id (^each)(id, id) = ^(id into, id each) { return each; };
+	l3_expect(REDStrictReduce(collection, initial, each)).to.equal(collection.lastObject);
 }
 
 
