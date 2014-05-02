@@ -38,6 +38,32 @@ l3_test(&REDStrictReduceRight) {
 }
 
 
+typedef id(^REDEnumeratorBlock)();
+REDEnumeratorBlock REDEnumerator(id<NSFastEnumeration> collection) {
+	__block struct {
+		NSFastEnumerationState state;
+		id __unsafe_unretained objects[16];
+		id __unsafe_unretained *current;
+		id __unsafe_unretained *stop;
+	} state = {0};
+	
+	NSUInteger (^refill)() = ^NSUInteger {
+		if (state.current >= state.stop) {
+			NSUInteger count = [collection countByEnumeratingWithState:&state.state objects:state.objects count:sizeof state.objects / sizeof *state.objects];
+			state.current = state.state.itemsPtr;
+			state.stop = state.current + count;
+		}
+		return state.stop - state.current;
+	};
+	
+	return ^{
+		return refill() > 0?
+			*state.current++
+		:	nil;
+	};
+}
+
+
 @implementation NSArray (REDReducible)
 
 -(id)red_reduce:(id)initial usingBlock:(REDReducingBlock)block {
