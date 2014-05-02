@@ -63,6 +63,17 @@ REDEnumeratorBlock REDEnumerator(id<NSFastEnumeration> collection) {
 	};
 }
 
+l3_addTestSubjectTypeWithFunction(REDEnumerator)
+l3_test(&REDEnumerator) {
+	REDEnumeratorBlock block = REDEnumerator(@[ @1, @2, @3, @4 ]);
+	id each;
+	id into = @"";
+	while ((each = block())) {
+		into = [into stringByAppendingString:[each description]];
+	}
+	l3_expect(into).to.equal(@"1234");
+}
+
 
 @implementation NSArray (REDReducible)
 
