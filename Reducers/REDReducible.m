@@ -121,4 +121,14 @@ l3_test(@selector(red_reduce:usingBlock:)) {
 	return initial;
 }
 
+l3_test(@selector(red_reduce:usingBlock:)) {
+	NSEnumerator *enumerator = [@[ @1, @2, @3 ] reverseObjectEnumerator];
+	NSMutableArray *into = [NSMutableArray new];
+	NSMutableArray *(^append)(NSMutableArray *, id) = ^(NSMutableArray *into, id each) {
+		[into addObject:each];
+		return into;
+	};
+	l3_expect([enumerator red_reduce:into usingBlock:append]).to.equal(@[ @3, @2, @1 ]);
+}
+
 @end
