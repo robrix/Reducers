@@ -61,3 +61,8 @@ typedef id(^REDReducingBlock)(id into, id each);
 /// Reduction is performed by composed character sequence, i.e. composed characters, emoji, etc. will be represented as a string with \c length > 1.
 @interface NSAttributedString (REDReducible) <REDReducible>
 @end
+
+
+/// \c NSEnumerator conforms to \c REDReducible.
+@interface NSEnumerator (REDReducible) <REDReducible>
+@end

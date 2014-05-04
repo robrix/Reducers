@@ -109,3 +109,16 @@ l3_test(@selector(red_reduce:usingBlock:)) {
 }
 
 @end
+
+
+@implementation NSEnumerator (REDReducible)
+
+-(id)red_reduce:(id)initial usingBlock:(REDReducingBlock)block {
+	id each;
+	while ((each = [self nextObject])) {
+		initial = block(initial, each);
+	}
+	return initial;
+}
+
+@end
