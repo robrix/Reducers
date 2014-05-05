@@ -48,7 +48,7 @@ REDEnumeratorBlock REDEnumerator(id<NSFastEnumeration> collection) {
 	} REDEnumeratorState;
 	__block REDEnumeratorState state = {0};
 	
-	NSUInteger (^refill)(REDEnumeratorState *) = ^NSUInteger (REDEnumeratorState *state) {
+	NSUInteger (^refill)(id<NSFastEnumeration>, REDEnumeratorState *) = ^NSUInteger (id<NSFastEnumeration> collection, REDEnumeratorState *state) {
 		if (state->current >= state->stop) {
 			NSUInteger count = [collection countByEnumeratingWithState:&state->state objects:state->objects count:sizeof state->objects / sizeof *state->objects];
 			state->current = state->state.itemsPtr;
@@ -58,7 +58,7 @@ REDEnumeratorBlock REDEnumerator(id<NSFastEnumeration> collection) {
 	};
 	
 	return ^{
-		return refill(&state) > 0?
+		return refill(collection, &state) > 0?
 			*state.current++
 		:	nil;
 	};
