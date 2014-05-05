@@ -40,12 +40,13 @@ l3_test(&REDStrictReduceRight) {
 
 typedef id(^REDEnumeratorBlock)();
 REDEnumeratorBlock REDEnumerator(id<NSFastEnumeration> collection) {
-	__block struct {
+	typedef struct {
 		NSFastEnumerationState state;
 		id __unsafe_unretained objects[16];
 		id __unsafe_unretained *current;
 		id __unsafe_unretained *stop;
-	} state = {0};
+	} REDEnumeratorState;
+	__block REDEnumeratorState state = {0};
 	
 	NSUInteger (^refill)() = ^NSUInteger {
 		if (state.current >= state.stop) {
