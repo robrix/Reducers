@@ -44,6 +44,13 @@ void REDEnumerate(REDIteratingBlock iterator, void(^block)(id each));
 @end
 
 
+/// \c NSDictionary conforms to \c REDIterable.
+///
+/// Iteration traverses the keys (as with \c NSFastEnumeration).
+@interface NSDictionary (REDIterable) <REDIterable>
+@end
+
+
 #pragma mark Iterators
 
 /// Iterate a \c collection using \c NSFastEnumeration.

@@ -52,6 +52,15 @@ l3_test(&REDEnumerate) {
 @end
 
 
+@implementation NSDictionary (REDIterable)
+
+-(REDIteratingBlock)red_iterator {
+	return REDIteratorWithFastEnumeration(self);
+}
+
+@end
+
+
 #pragma mark Conveniences
 
 REDIteratingBlock REDIteratorWithFastEnumeration(id<NSFastEnumeration> collection) {
