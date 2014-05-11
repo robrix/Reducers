@@ -2,6 +2,8 @@
 
 #import <Foundation/Foundation.h>
 
+#pragma mark Iterable
+
 /// A nullary block iterating the elements of a collection over successive calls.
 ///
 /// \return The next object in the collection, or nil if it has iterated the entire collection.
@@ -16,7 +18,16 @@ typedef id (^REDIteratingBlock)(void);
 @end
 
 
-#pragma mark Conveniences
+#pragma mark Enumerate
+
+/// Call a block once for each object in an \c iterator.
+///
+/// \param iterator  A \c REDIteratingBlock to enumerate until it returns \c nil.
+/// \param block     A block to call once for each object in the \c iterator.
+void REDEnumerate(REDIteratingBlock iterator, void(^block)(id each));
+
+
+#pragma mark Iterators
 
 /// Iterate a \c collection using \c NSFastEnumeration.
 ///
