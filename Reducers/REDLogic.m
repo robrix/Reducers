@@ -3,11 +3,13 @@
 #import "REDLogic.h"
 #import "REDMap.h"
 
-id REDAnd(id<REDReducible> collection) {
+#pragma mark Logic
+
+id REDAnd(id<REDReducible> collection, REDMapBlock map) {
 	id marker = [NSObject new];
 	id found = [collection red_reduce:marker usingBlock:^(id into, id each) {
 		return into?
-			each
+			map(each)
 		:	nil;
 	}];
 	
@@ -17,8 +19,8 @@ id REDAnd(id<REDReducible> collection) {
 }
 
 
-id REDOr(id<REDReducible> collection) {
-	return [collection red_reduce:nil usingBlock:^id(id into, id each) {
-		return into ?: each;
+id REDOr(id<REDReducible> collection, REDMapBlock map) {
+	return [collection red_reduce:nil usingBlock:^(id into, id each) {
+		return into ?: map(each);
 	}];
 }
