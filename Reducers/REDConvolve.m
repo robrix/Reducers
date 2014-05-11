@@ -4,12 +4,7 @@
 #import "REDConvolve.h"
 #import "REDMap.h"
 #import "REDReducer.h"
-
-@protocol REDIterable <NSObject>
-
-@property (readonly) id(^red_iterator)(void);
-
-@end
+#import "REDIterable.h"
 
 @interface NSString (REDIterable) <REDIterable>
 @end
