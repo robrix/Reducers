@@ -39,6 +39,11 @@ void REDEnumerate(REDIteratingBlock iterator, void(^block)(id each));
 @end
 
 
+/// \c NSOrderedSet conforms to \c REDIterable.
+@interface NSOrderedSet (REDIterable) <REDIterable>
+@end
+
+
 #pragma mark Iterators
 
 /// Iterate a \c collection using \c NSFastEnumeration.
