@@ -3,7 +3,6 @@
 #import "REDAppendable.h"
 #import "REDConvolve.h"
 #import "REDMap.h"
-#import "REDReducer.h"
 #import "REDIterable.h"
 
 #pragma mark Convolve
