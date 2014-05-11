@@ -27,6 +27,13 @@ typedef id (^REDIteratingBlock)(void);
 void REDEnumerate(REDIteratingBlock iterator, void(^block)(id each));
 
 
+#pragma mark Categories
+
+/// \c NSArray conforms to \c REDIterable.
+@interface NSArray (REDIterable) <REDIterable>
+@end
+
+
 #pragma mark Iterators
 
 /// Iterate a \c collection using \c NSFastEnumeration.
