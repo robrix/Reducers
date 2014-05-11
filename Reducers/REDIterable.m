@@ -2,6 +2,27 @@
 
 #import "REDIterable.h"
 
+#pragma mark Enumerate
+
+void REDEnumerate(REDIteratingBlock iterator, void(^block)(id each)) {
+	id each;
+	while ((each = iterator())) {
+		block(each);
+	}
+}
+
+l3_addTestSubjectTypeWithFunction(REDEnumerate)
+l3_test(&REDEnumerate) {
+	REDIteratingBlock iterator = REDIteratorWithFastEnumeration(@[ @"a", @"b", @"c" ]);
+	__block NSString *iterated = @"";
+	REDEnumerate(iterator, ^(NSString *each) {
+		iterated = [iterated stringByAppendingString:each];
+	});
+	NSString *full = @"abc";
+	l3_expect(iterated).to.equal(full);
+}
+
+
 #pragma mark Conveniences
 
 REDIteratingBlock REDIteratorWithFastEnumeration(id<NSFastEnumeration> collection) {
