@@ -88,27 +88,11 @@ l3_test(@selector(red_iterator)) {
 #pragma mark REDReducible
 
 -(id)red_reduce:(id)initial usingBlock:(REDReducingBlock)block {
-	NSArray *enumerators = [NSArray red_append:REDMap(_reducibles, ^id (id<REDIterable> each) {
-		return each.red_iterator;
-	})];
-	
-	id enumerated[enumerators.count];
-	while (1) {
-		id __strong *next = enumerated;
-		for (id(^enumerator)() in enumerators) {
-			id object = enumerator();
-			if (!object) goto done;
-			*next++ = object;
-		}
-		
-		unsigned long count = sizeof enumerated / sizeof *enumerated;
-		id __strong *all = enumerated;
-		initial = block(initial, obstr_block_apply(_convolution, count, all));
-	}
-	
-	done:
-	
-	return initial;
+	__block id into = initial;
+	REDEnumerate(self.red_iterator, ^(id each) {
+		into = block(into, each);
+	});
+	return into;
 }
 
 l3_test(@selector(red_reduce:usingBlock:)) {
