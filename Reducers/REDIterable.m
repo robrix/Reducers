@@ -2,6 +2,8 @@
 
 #import "REDIterable.h"
 
+#pragma mark Conveniences
+
 REDIteratingBlock REDIteratorWithFastEnumeration(id<NSFastEnumeration> collection) {
 	typedef struct {
 		NSFastEnumerationState state;

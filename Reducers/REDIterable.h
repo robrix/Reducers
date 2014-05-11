@@ -14,3 +14,12 @@ typedef id (^REDIteratingBlock)(void);
 @property (readonly) REDIteratingBlock red_iterator;
 
 @end
+
+
+#pragma mark Conveniences
+
+/// Iterate a \c collection using \c NSFastEnumeration.
+///
+/// \param collection  A fast enumeration to iterate.
+/// \return            An iterating block which will produce the objects enumerated in \c collection one by one, until it has exhausted them, at which point it will return \c nil.
+REDIteratingBlock REDIteratorWithFastEnumeration(id<NSFastEnumeration> collection);
