@@ -83,6 +83,20 @@ l3_test(@selector(red_iterator)) {
 @end
 
 
+@implementation NSAttributedString (REDIterable)
+
+-(REDIteratingBlock)red_iterator {
+	__block NSRange range = {0};
+	return ^{
+		return NSMaxRange(range) < self.length?
+			[self attributedSubstringFromRange:range = [self.string rangeOfComposedCharacterSequenceAtIndex:NSMaxRange(range)]]
+		:	nil;
+	};
+}
+
+@end
+
+
 #pragma mark Conveniences
 
 REDIteratingBlock REDIteratorWithFastEnumeration(id<NSFastEnumeration> collection) {

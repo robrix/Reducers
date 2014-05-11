@@ -58,6 +58,13 @@ void REDEnumerate(REDIteratingBlock iterator, void(^block)(id each));
 @end
 
 
+/// \c NSAttributedString conforms to \c REDIterable.
+///
+/// Iteration is performed by composed character sequence, i.e. composed characters, emoji, etc. will be represented as a string with \c length > 1.
+@interface NSAttributedString (REDIterable) <REDIterable>
+@end
+
+
 #pragma mark Iterators
 
 /// Iterate a \c collection using \c NSFastEnumeration.
