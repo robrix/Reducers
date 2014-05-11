@@ -97,6 +97,25 @@ l3_test(@selector(red_iterator)) {
 @end
 
 
+@implementation NSEnumerator (REDIterable)
+
+-(REDIteratingBlock)red_iterator {
+	return ^{
+		return [self nextObject];
+	};
+}
+
+l3_test(@selector(red_iterator)) {
+	__block id last;
+	REDEnumerate(@[ @0, @1, @2 ].reverseObjectEnumerator.red_iterator, ^(id each) {
+		last = each;
+	});
+	l3_expect(last).to.equal(@0);
+}
+
+@end
+
+
 #pragma mark Conveniences
 
 REDIteratingBlock REDIteratorWithFastEnumeration(id<NSFastEnumeration> collection) {
