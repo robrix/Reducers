@@ -45,31 +45,15 @@ id<REDIterable, REDReducible> REDConvolve(id<REDReducible> reducibles, REDConvol
 	NSArray *iterators = [NSArray red_append:REDMap(_reducibles, ^id (id<REDIterable> each) {
 		return each.red_iterator;
 	})];
-	
 	NSUInteger count = iterators.count;
 	
-	__block id __strong *objects = (id __strong *)calloc(count, sizeof(id __strong));
-	
 	return ^{
-		id convolved;
-		id __strong *next = objects;
-		if (objects == NULL) goto done;
+		id __strong objects[count];
+		__block id __strong *next = objects;
 		
-		for (REDIteratingBlock iterator in iterators) {
-			id object = iterator();
-			if (object == nil) {
-				free(objects);
-				objects = NULL;
-				goto done;
-			}
-			*next++ = object;
-		}
-		
-		convolved = obstr_block_apply(_convolution, count, objects);
-		
-		done:
-		
-		return convolved;
+		return [iterators red_reduce:nil usingBlock:^(id _, REDIteratingBlock each) { return (*next++ = each())? @YES : nil; }]?
+			obstr_block_apply(_convolution, count, objects)
+		:	nil;
 	};
 }
 
