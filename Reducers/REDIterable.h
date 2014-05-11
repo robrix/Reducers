@@ -65,6 +65,13 @@ void REDEnumerate(REDIteratingBlock iterator, void(^block)(id each));
 @end
 
 
+/// \c NSEnumerator conforms to \c REDIterable.
+///
+/// Iterating an enumerator with \c -red_iterator uses \c -nextObject, and thus consumes all of the objects in the enumerator.
+@interface NSEnumerator (REDIterable) <REDIterable>
+@end
+
+
 #pragma mark Iterators
 
 /// Iterate a \c collection using \c NSFastEnumeration.
