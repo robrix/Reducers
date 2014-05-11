@@ -153,4 +153,3 @@ l3_test(&REDIteratorWithFastEnumeration) {
 	}
 	l3_expect(into).to.equal(@"1234");
 }
-
