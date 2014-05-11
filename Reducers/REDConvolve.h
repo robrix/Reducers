@@ -18,9 +18,3 @@ typedef id(^REDConvolutionBlock)();
 /// \param convolution  A block to be applied to each element of the reducibles in turn.
 /// \return             A reducible which, when reduced, maps the elements of the reducibles produced by \c reducibles with \c convolution.
 id<REDReducible> REDConvolve(id<REDReducible> reducibles, REDConvolutionBlock convolution);
-
-
-#pragma mark Array
-
-/// A convolution block which returns an array of its parameters.
-extern REDConvolutionBlock const REDArrayConvolutionBlock;

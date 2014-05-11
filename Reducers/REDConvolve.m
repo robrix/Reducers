@@ -16,10 +16,6 @@ id<REDReducible> REDConvolve(id<REDReducible> reducibles, REDConvolutionBlock co
 }
 
 
-#pragma mark Array
-
-
-
 #pragma mark Convolution
 
 @implementation REDConvolver {
