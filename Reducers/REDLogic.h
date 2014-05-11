@@ -6,9 +6,9 @@
 
 /// Performs a logical ‘and’ operation over the elements of a collection.
 ///
-/// Instead of the traditional true/false, this function returns the final element of the \c collection if all elements are not \c nil, or else \c nil. It can therefore be used to chain dependent actions.
+/// Instead of the traditional true/false, this function returns the final element of the \c collection if all elements are not \c nil, or else \c nil. It can therefore be used to chain dependent actions such that later actions are not taken if earlier ones were \c nil.
 ///
-/// \param collection  The collection to take the logical and of.
+/// \param collection  The collection to take the logical ‘and’ of.
 /// \return            The last element of \c collection if no element of \c collection is \c nil, or \c nil otherwise.
 id REDAnd(id<REDReducible> collection);
 
