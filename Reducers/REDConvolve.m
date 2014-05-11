@@ -6,22 +6,6 @@
 #import "REDReducer.h"
 #import "REDIterable.h"
 
-@interface NSString (REDIterable) <REDIterable>
-@end
-@implementation NSString (REDIterable)
-
--(id (^)(void))red_iterator {
-	__block NSUInteger index = 0;
-	return ^{
-		return index < self.length?
-			[self substringWithRange:[self rangeOfComposedCharacterSequenceAtIndex:index++]]
-		:	nil;
-	};
-}
-
-@end
-
-
 #pragma mark Convolve
 
 @interface REDConvolver : NSObject <REDReducible>

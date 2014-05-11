@@ -61,6 +61,28 @@ l3_test(&REDEnumerate) {
 @end
 
 
+@implementation NSString (REDIterable)
+
+-(REDIteratingBlock)red_iterator {
+	__block NSRange range = {0};
+	return ^{
+		return NSMaxRange(range) < self.length?
+			[self substringWithRange:range = [self rangeOfComposedCharacterSequenceAtIndex:NSMaxRange(range)]]
+		:	nil;
+	};
+}
+
+l3_test(@selector(red_iterator)) {
+	__block NSUInteger count = 0;
+	REDEnumerate(@" ∆♬🍁☃ü".red_iterator, ^(NSString *each) {
+		count++;
+	});
+	l3_expect(count).to.equal(@6);
+}
+
+@end
+
+
 #pragma mark Conveniences
 
 REDIteratingBlock REDIteratorWithFastEnumeration(id<NSFastEnumeration> collection) {
