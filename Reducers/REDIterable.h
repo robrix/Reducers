@@ -2,8 +2,15 @@
 
 #import <Foundation/Foundation.h>
 
+/// A nullary block iterating the elements of a collection over successive calls.
+///
+/// \return The next object in the collection, or nil if it has iterated the entire collection.
+typedef id (^REDIteratingBlock)(void);
+
+/// A collection which can be iterated.
 @protocol REDIterable <NSObject>
 
-@property (readonly) id(^red_iterator)(void);
+/// An iterator for this collection.
+@property (readonly) REDIteratingBlock red_iterator;
 
 @end
