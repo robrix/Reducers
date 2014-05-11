@@ -7,4 +7,7 @@
    <FileRef
       location = "group:External/Lagrangian/Lagrangian.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:External/Obstruct/Obstruct.xcodeproj">
+   </FileRef>
 </Workspace>

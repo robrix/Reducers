@@ -20,6 +20,7 @@
 		D46D2B9618E1E30C0065701D /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4ACA64F18DDEC4A00EBD899 /* XCTest.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		D46D2B9718E1E3910065701D /* Lagrangian.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D46D2B9118E1E2CE0065701D /* Lagrangian.framework */; };
 		D46D2B9818E1E3A40065701D /* libLagrangian.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D46D2B9418E1E2E70065701D /* libLagrangian.a */; };
+		D4A553E2191FA54400DA2EAE /* Obstruct.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4A553E1191FA54400DA2EAE /* Obstruct.framework */; };
 		D4ACA64518DDEC4900EBD899 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D4ACA64318DDEC4900EBD899 /* InfoPlist.strings */; };
 		D4ACA66518DDED9900EBD899 /* Reducers.h in Headers */ = {isa = PBXBuildFile; fileRef = D4ACA64718DDEC4900EBD899 /* Reducers.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D4ACA66A18DDEE4500EBD899 /* REDReducible.h in Headers */ = {isa = PBXBuildFile; fileRef = D4ACA66818DDEE4500EBD899 /* REDReducible.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -81,6 +82,7 @@
 		D46D2B7818E11E800065701D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		D46D2B9118E1E2CE0065701D /* Lagrangian.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Lagrangian.framework; path = External/Lagrangian/build/Debug/Lagrangian.framework; sourceTree = "<group>"; };
 		D46D2B9418E1E2E70065701D /* libLagrangian.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libLagrangian.a; path = "External/Lagrangian/build/Debug-iphoneos/libLagrangian.a"; sourceTree = "<group>"; };
+		D4A553E1191FA54400DA2EAE /* Obstruct.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Obstruct.framework; path = External/Obstruct/build/Debug/Obstruct.framework; sourceTree = "<group>"; };
 		D4ACA63718DDEC4900EBD899 /* Reducers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Reducers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4ACA63A18DDEC4900EBD899 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		D4ACA63D18DDEC4900EBD899 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -136,6 +138,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4A553E2191FA54400DA2EAE /* Obstruct.framework in Frameworks */,
 				D46D2B9318E1E2DC0065701D /* Foundation.framework in Frameworks */,
 				D46D2B9018E11F920065701D /* XCTest.framework in Frameworks */,
 				D46D2B9218E1E2CE0065701D /* Lagrangian.framework in Frameworks */,
@@ -196,6 +199,7 @@
 		D4ACA63918DDEC4900EBD899 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D4A553E1191FA54400DA2EAE /* Obstruct.framework */,
 				D46D2B9418E1E2E70065701D /* libLagrangian.a */,
 				D46D2B9118E1E2CE0065701D /* Lagrangian.framework */,
 				D4ACA63A18DDEC4900EBD899 /* Cocoa.framework */,
