@@ -8,13 +8,13 @@
 
 #pragma mark Convolve
 
-@interface REDConvolver : NSObject <REDReducible>
+@interface REDConvolver : NSObject <REDReducible, REDIterable>
 
 +(instancetype)convolverWithReducibles:(id<REDReducible>)reducibles convolution:(REDConvolutionBlock)convolution;
 
 @end
 
-id<REDReducible> REDConvolve(id<REDReducible> reducibles, REDConvolutionBlock convolution) {
+id<REDIterable, REDReducible> REDConvolve(id<REDReducible> reducibles, REDConvolutionBlock convolution) {
 	return [REDConvolver convolverWithReducibles:reducibles convolution:convolution];
 }
 
@@ -37,6 +37,55 @@ id<REDReducible> REDConvolve(id<REDReducible> reducibles, REDConvolutionBlock co
 	}
 	return self;
 }
+
+
+#pragma mark REDIterable
+
+-(REDIteratingBlock)red_iterator {
+	NSArray *iterators = [NSArray red_append:REDMap(_reducibles, ^id (id<REDIterable> each) {
+		return each.red_iterator;
+	})];
+	
+	NSUInteger count = iterators.count;
+	
+	__block id __strong *objects = (id __strong *)calloc(count, sizeof(id __strong));
+	
+	return ^{
+		id convolved;
+		id __strong *next = objects;
+		if (objects == NULL) goto done;
+		
+		for (REDIteratingBlock iterator in iterators) {
+			id object = iterator();
+			if (object == nil) {
+				free(objects);
+				objects = NULL;
+				goto done;
+			}
+			*next++ = object;
+		}
+		
+		convolved = obstr_block_apply(_convolution, count, objects);
+		
+		done:
+		
+		return convolved;
+	};
+}
+
+l3_test(@selector(red_iterator)) {
+	REDIteratingBlock iterator = REDConvolve(@[ @"one", @"two", @"three" ], ^(NSString *a, NSString *b, NSString *c) {
+		return [[a stringByAppendingString:b] stringByAppendingString:c];
+	}).red_iterator;
+	__block NSString *joined = @"";
+	REDEnumerate(iterator, ^(NSString *each) {
+		joined = [joined stringByAppendingString:each];
+	});
+	l3_expect(joined).to.equal(@"ottnwheor");
+}
+
+
+#pragma mark REDReducible
 
 -(id)red_reduce:(id)initial usingBlock:(REDReducingBlock)block {
 	NSArray *enumerators = [NSArray red_append:REDMap(_reducibles, ^id (id<REDIterable> each) {
