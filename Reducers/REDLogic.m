@@ -15,3 +15,10 @@ id REDAnd(id<REDReducible> collection) {
 		found
 	:	marker;
 }
+
+
+id REDOr(id<REDReducible> collection) {
+	return [collection red_reduce:nil usingBlock:^id(id into, id each) {
+		return into ?: each;
+	}];
+}
