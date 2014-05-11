@@ -138,7 +138,7 @@ REDIteratingBlock REDIteratorWithFastEnumeration(id<NSFastEnumeration> collectio
 	
 	return ^{
 		return refill(collection, &state) > 0?
-		*state.current++
+			*state.current++
 		:	nil;
 	};
 }
@@ -153,4 +153,3 @@ l3_test(&REDIteratorWithFastEnumeration) {
 	}
 	l3_expect(into).to.equal(@"1234");
 }
-
