@@ -34,6 +34,11 @@ void REDEnumerate(REDIteratingBlock iterator, void(^block)(id each));
 @end
 
 
+/// \c NSSet conforms to \c REDIterable.
+@interface NSSet (REDIterable) <REDIterable>
+@end
+
+
 #pragma mark Iterators
 
 /// Iterate a \c collection using \c NSFastEnumeration.
