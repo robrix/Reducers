@@ -40,3 +40,7 @@ id REDOr(id<REDReducible> collection, REDMapBlock map) {
 		return into ?: map(each);
 	}];
 }
+
+l3_test(&REDOr) {
+	l3_expect(REDOr(@[ @1, @2 ], ^(NSNumber *each) { return each.unsignedIntegerValue % 2 == 0? each : nil; })).to.equal(@2);
+}
