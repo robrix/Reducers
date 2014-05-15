@@ -140,8 +140,9 @@ l3_test(@selector(red_reduce:usingBlock:)) {
 	id each;
 	while ((each = [self nextObject])) {
 		initial = block(initial, each);
+		if (initial != [initial self]) break;
 	}
-	return initial;
+	return [initial self];
 }
 
 l3_test(@selector(red_reduce:usingBlock:)) {
@@ -152,6 +153,9 @@ l3_test(@selector(red_reduce:usingBlock:)) {
 		return into;
 	};
 	l3_expect([enumerator red_reduce:into usingBlock:append]).to.equal(@[ @3, @2, @1 ]);
+	
+	id (^first)(id, id) = ^(id _, id each) { return [REDReduced reduced:each]; };
+	l3_expect([[@[ @1, @2, @3 ] reverseObjectEnumerator] red_reduce:nil usingBlock:first]).to.equal(@3);
 }
 
 @end
