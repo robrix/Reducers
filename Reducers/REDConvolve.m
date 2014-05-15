@@ -2,8 +2,9 @@
 
 #import "REDAppendable.h"
 #import "REDConvolve.h"
-#import "REDMap.h"
 #import "REDIterable.h"
+#import "REDLogic.h"
+#import "REDMap.h"
 
 #pragma mark Convolve
 
@@ -50,7 +51,7 @@ id<REDIterable, REDReducible> REDConvolve(id<REDReducible> reducibles, REDConvol
 		id __strong objects[count];
 		__block id __strong *next = objects;
 		
-		return [iterators red_reduce:nil usingBlock:^(id _, REDIteratingBlock each) { return (*next++ = each())? @YES : nil; }]?
+		return REDAnd(REDMap(iterators, ^(REDIteratingBlock each) { return (*next++ = each())? @YES : nil; }))?
 			obstr_block_apply(_convolution, count, objects)
 		:	nil;
 	};
