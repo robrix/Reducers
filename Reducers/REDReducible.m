@@ -112,8 +112,9 @@ l3_test(@selector(red_reduce:usingBlock:)) {
 	__block id result = initial;
 	[self.string enumerateSubstringsInRange:(NSRange){ .length = self.length } options:NSStringEnumerationByComposedCharacterSequences usingBlock:^(NSString *substring, NSRange substringRange, NSRange enclosingRange, BOOL *stop) {
 		result = block(result, [self attributedSubstringFromRange:substringRange]);
+		if (result != [result self]) *stop = YES;
 	}];
-	return result;
+	return [result self];
 }
 
 l3_test(@selector(red_reduce:usingBlock:)) {
@@ -122,8 +123,12 @@ l3_test(@selector(red_reduce:usingBlock:)) {
 		[copy appendAttributedString:each];
 		return copy;
 	};
-	NSAttributedString *original = [[NSAttributedString alloc] initWithString:@"♬🐡😠" attributes:@{ @"key": @"value" }];
+	NSDictionary *attributes = @{ @"key": @"value" };
+	NSAttributedString *original = [[NSAttributedString alloc] initWithString:@"♬🐡😠" attributes:attributes];
 	l3_expect([original red_reduce:[NSAttributedString new] usingBlock:append]).to.equal(original);
+	
+	id (^first)(id, id) = ^(id _, id each) { return [REDReduced reduced:each]; };
+	l3_expect([original red_reduce:@"" usingBlock:first]).to.equal([[NSAttributedString alloc] initWithString:@"♬" attributes:attributes]);
 }
 
 @end
