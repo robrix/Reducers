@@ -15,6 +15,11 @@
 static inline id REDStrictReduce(id<NSFastEnumeration> collection, id initial, REDReducingBlock block) {
 	for (id each in collection) {
 		initial = block(initial, each);
+		id itself = [initial self];
+		if (initial != itself) {
+			initial = itself;
+			break;
+		}
 	}
 	return initial;
 }
@@ -25,6 +30,9 @@ l3_test(&REDStrictReduce) {
 	id initial;
 	id (^lastObject)(id, id) = ^(id into, id each) { return each; };
 	l3_expect(REDStrictReduce(collection, initial, lastObject)).to.equal(collection.lastObject);
+	
+	id (^firstObject)(id, id) = ^(id into, id each) { return [REDReduced reduced:each]; };
+	l3_expect(REDStrictReduce(collection, initial, firstObject)).to.equal(collection.firstObject);
 }
 
 
