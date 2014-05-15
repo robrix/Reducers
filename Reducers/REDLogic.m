@@ -29,7 +29,6 @@ l3_test(&REDAnd) {
 		return (id)nil;
 	});
 	l3_expect(REDAnd(map)).to.equal(nil);
-	
 	l3_expect(effects).to.equal(@1);
 }
 
