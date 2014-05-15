@@ -34,13 +34,19 @@ l3_test(&REDAnd) {
 }
 
 
-id REDOr(id<REDReducible> collection, REDMapBlock map) {
+id REDOr(id<REDReducible> collection) {
 	return [collection red_reduce:nil usingBlock:^(id into, id each) {
-		return into ?: map(each);
+		return into?
+			[REDReduced reduced:into]
+		:	each;
 	}];
 }
 
-l3_addTestSubjectTypeWithFunction(REDOr)
 l3_test(&REDOr) {
-	l3_expect(REDOr(@[ @1, @2 ], ^(NSNumber *each) { return each.unsignedIntegerValue % 2 == 0? each : nil; })).to.equal(@2);
+	__block NSUInteger effects = 0;
+	id<REDReducible> map = REDMap(@[ @1, @2, @3, @4 ], ^(NSNumber *each) {
+		++effects;
+		return each.unsignedIntegerValue % 2 == 0? each : nil;
+	});
+	l3_expect(REDOr(map)).to.equal(@2);
 }

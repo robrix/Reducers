@@ -18,6 +18,5 @@ id REDAnd(id<REDReducible> collection);
 /// Instead of the traditional true/false, this function returns the first element of the \c collection that is not \c nil. It can therefore be used to chain dependent actions such that earlier actions will take precedence over later ones.
 ///
 /// \param collection  The collection to take the logical ‘or’ of.
-/// \param map         A block whose return value is used to compute the values to be compared.
 /// \return            The first element of \c collection which is not \c nil.
-id REDOr(id<REDReducible> collection, REDMapBlock map);
+id REDOr(id<REDReducible> collection);
