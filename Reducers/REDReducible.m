@@ -89,14 +89,18 @@ l3_test(@selector(red_reduce:usingBlock:)) {
 	__block id result = initial;
 	[self enumerateSubstringsInRange:(NSRange){ .length = self.length } options:NSStringEnumerationByComposedCharacterSequences usingBlock:^(NSString *substring, NSRange substringRange, NSRange enclosingRange, BOOL *stop) {
 		result = block(result, substring);
+		if (result != [result self]) *stop = YES;
 	}];
-	return result;
+	return [result self];
 }
 
 l3_test(@selector(red_reduce:usingBlock:)) {
 	NSString *(^append)(NSString *, id) = ^(NSString *into, NSString *each) { return [into stringByAppendingString:each]; };
 	NSString *original = @"12345∆π¬µ∂🚑👖🐢🎈🔄";
 	l3_expect([original red_reduce:@"" usingBlock:append]).to.equal(original);
+	
+	id (^first)(id, id) = ^(id _, id each) { return [REDReduced reduced:each]; };
+	l3_expect([original red_reduce:@"" usingBlock:first]).to.equal([original substringToIndex:1]);
 }
 
 @end
