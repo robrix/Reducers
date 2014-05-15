@@ -15,12 +15,18 @@
 	return REDFlattenMap(self, map);
 }
 
+
 -(id<REDReducible>)red_filter:(REDPredicateBlock)predicate {
 	return REDFilter(self, predicate);
 }
+
 
 -(id<REDReducible>)red_join:(id)separator {
 	return REDJoin(self, separator);
 }
 
+
+-(id<REDIterable, REDReducible>)red_convolve:(REDConvolutionBlock)convolution {
+	return REDConvolve(self, convolution);
+}
 @end
