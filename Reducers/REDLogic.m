@@ -5,11 +5,11 @@
 
 #pragma mark Logic
 
-id REDAnd(id<REDReducible> collection, REDMapBlock map) {
+id REDAnd(id<REDReducible> collection) {
 	id marker = [NSObject new];
 	id found = [collection red_reduce:marker usingBlock:^(id into, id each) {
 		return into?
-			map(each)
+			each ?: [REDReduced reduced:nil]
 		:	nil;
 	}];
 	
@@ -22,16 +22,12 @@ l3_addTestSubjectTypeWithFunction(REDAnd)
 l3_test(&REDAnd) {
 	__block NSUInteger outerEffects = 0;
 	id<REDReducible> map = REDMap(@[ @"a", @"b", @"c" ], ^(id each) {
-		return @(outerEffects++);
-	});
-	__block NSUInteger innerEffects = 0;
-	l3_expect(REDAnd(map, ^(id each) {
-		++innerEffects;
+		++outerEffects;
 		return (id)nil;
-	})).to.equal(nil);
+	});
+	l3_expect(REDAnd(map)).to.equal(nil);
 	
-	l3_expect(outerEffects).to.equal(@3);
-	l3_expect(innerEffects).to.equal(@1);
+	l3_expect(outerEffects).to.equal(@1);
 }
 
 
@@ -41,6 +37,7 @@ id REDOr(id<REDReducible> collection, REDMapBlock map) {
 	}];
 }
 
+l3_addTestSubjectTypeWithFunction(REDOr)
 l3_test(&REDOr) {
 	l3_expect(REDOr(@[ @1, @2 ], ^(NSNumber *each) { return each.unsignedIntegerValue % 2 == 0? each : nil; })).to.equal(@2);
 }
