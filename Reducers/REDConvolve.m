@@ -62,7 +62,7 @@ l3_test(@selector(red_iterator)) {
 		return [[a stringByAppendingString:b] stringByAppendingString:c];
 	}).red_iterator;
 	__block NSString *joined = @"";
-	REDEnumerate(iterator, ^(NSString *each) {
+	REDEnumerate(iterator, ^(NSString *each, bool *_) {
 		joined = [joined stringByAppendingString:each];
 	});
 	l3_expect(joined).to.equal(@"ottnwheor");
@@ -73,7 +73,7 @@ l3_test(@selector(red_iterator)) {
 
 -(id)red_reduce:(id)initial usingBlock:(REDReducingBlock)block {
 	__block id into = initial;
-	REDEnumerate(self.red_iterator, ^(id each) {
+	REDEnumerate(self.red_iterator, ^(id each, bool *stop) {
 		into = block(into, each);
 	});
 	return into;

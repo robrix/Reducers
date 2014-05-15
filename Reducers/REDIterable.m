@@ -4,10 +4,11 @@
 
 #pragma mark Enumerate
 
-void REDEnumerate(REDIteratingBlock iterator, void(^block)(id each)) {
+void REDEnumerate(REDIteratingBlock iterator, void(^block)(id each, bool *stop)) {
 	id each;
-	while ((each = iterator())) {
-		block(each);
+	bool stop = NO;
+	while ((each = iterator()) && !stop) {
+		block(each, &stop);
 	}
 }
 
@@ -15,7 +16,7 @@ l3_addTestSubjectTypeWithFunction(REDEnumerate)
 l3_test(&REDEnumerate) {
 	REDIteratingBlock iterator = REDIteratorWithFastEnumeration(@[ @"a", @"b", @"c" ]);
 	__block NSString *iterated = @"";
-	REDEnumerate(iterator, ^(NSString *each) {
+	REDEnumerate(iterator, ^(NSString *each, bool *_) {
 		iterated = [iterated stringByAppendingString:each];
 	});
 	NSString *full = @"abc";
@@ -74,7 +75,7 @@ l3_test(&REDEnumerate) {
 
 l3_test(@selector(red_iterator)) {
 	__block NSUInteger count = 0;
-	REDEnumerate(@" ∆♬🍁☃ü".red_iterator, ^(NSString *each) {
+	REDEnumerate(@" ∆♬🍁☃ü".red_iterator, ^(NSString *each, bool *_) {
 		count++;
 	});
 	l3_expect(count).to.equal(@6);
@@ -107,7 +108,7 @@ l3_test(@selector(red_iterator)) {
 
 l3_test(@selector(red_iterator)) {
 	__block id last;
-	REDEnumerate(@[ @0, @1, @2 ].reverseObjectEnumerator.red_iterator, ^(id each) {
+	REDEnumerate(@[ @0, @1, @2 ].reverseObjectEnumerator.red_iterator, ^(id each, bool *_) {
 		last = each;
 	});
 	l3_expect(last).to.equal(@0);

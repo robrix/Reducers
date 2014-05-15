@@ -24,7 +24,7 @@ typedef id (^REDIteratingBlock)(void);
 ///
 /// \param iterator  A \c REDIteratingBlock to enumerate until it returns \c nil.
 /// \param block     A block to call once for each object in the \c iterator.
-void REDEnumerate(REDIteratingBlock iterator, void(^block)(id each));
+void REDEnumerate(REDIteratingBlock iterator, void(^block)(id each, bool *stop));
 
 
 #pragma mark Categories
