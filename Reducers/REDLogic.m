@@ -47,4 +47,13 @@ l3_test(&REDOr) {
 		return each.unsignedIntegerValue % 2 == 0? each : nil;
 	});
 	l3_expect(REDOr(map)).to.equal(@2);
+	l3_expect(effects).to.equal(@2);
+	
+	effects = 0;
+	id<REDReducible> toNil = REDMap(@[ @1, @2, @3, @4 ], ^(id _) {
+		++effects;
+		return (id)nil;
+	});
+	l3_expect(REDOr(toNil)).to.equal(nil);
+	l3_expect(effects).to.equal(@4);
 }
