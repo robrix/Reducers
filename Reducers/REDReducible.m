@@ -24,8 +24,8 @@ l3_addTestSubjectTypeWithFunction(REDStrictReduce)
 l3_test(&REDStrictReduce) {
 	NSArray *collection = @[ @"a", @"b", @"c" ];
 	id initial;
-	id (^lastObject)(id, id) = ^(id into, id each) { return each; };
-	l3_expect(REDStrictReduce(collection, initial, lastObject)).to.equal(collection.lastObject);
+	id (^each)(id, id) = ^(id into, id each) { return each; };
+	l3_expect(REDStrictReduce(collection, initial, each)).to.equal(collection.lastObject);
 	
 	id (^firstObject)(id, id) = ^(id into, id each) { return [REDReduced reduced:each]; };
 	l3_expect(REDStrictReduce(collection, initial, firstObject)).to.equal(collection.firstObject);
@@ -89,7 +89,7 @@ l3_test(@selector(red_reduce:usingBlock:)) {
 	__block id result = initial;
 	[self enumerateSubstringsInRange:(NSRange){ .length = self.length } options:NSStringEnumerationByComposedCharacterSequences usingBlock:^(NSString *substring, NSRange substringRange, NSRange enclosingRange, BOOL *stop) {
 		result = block(result, substring);
-		if (result != [result self]) *stop = YES;
+		*stop = result != [result self];
 	}];
 	return [result self];
 }
@@ -112,7 +112,7 @@ l3_test(@selector(red_reduce:usingBlock:)) {
 	__block id result = initial;
 	[self.string enumerateSubstringsInRange:(NSRange){ .length = self.length } options:NSStringEnumerationByComposedCharacterSequences usingBlock:^(NSString *substring, NSRange substringRange, NSRange enclosingRange, BOOL *stop) {
 		result = block(result, [self attributedSubstringFromRange:substringRange]);
-		if (result != [result self]) *stop = YES;
+		*stop = result != [result self];
 	}];
 	return [result self];
 }

@@ -20,6 +20,7 @@
 		D46D2B9618E1E30C0065701D /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4ACA64F18DDEC4A00EBD899 /* XCTest.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		D46D2B9718E1E3910065701D /* Lagrangian.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D46D2B9118E1E2CE0065701D /* Lagrangian.framework */; };
 		D46D2B9818E1E3A40065701D /* libLagrangian.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D46D2B9418E1E2E70065701D /* libLagrangian.a */; };
+		D4A553E2191FA54400DA2EAE /* Obstruct.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4A553E1191FA54400DA2EAE /* Obstruct.framework */; };
 		D4A553E5191FCB7300DA2EAE /* REDIterable.h in Headers */ = {isa = PBXBuildFile; fileRef = D4A553E3191FCB7300DA2EAE /* REDIterable.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D4A553E6191FCB7300DA2EAE /* REDIterable.h in Headers */ = {isa = PBXBuildFile; fileRef = D4A553E3191FCB7300DA2EAE /* REDIterable.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D4A553E7191FCB7300DA2EAE /* REDIterable.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A553E4191FCB7300DA2EAE /* REDIterable.m */; };
@@ -60,6 +61,8 @@
 		D4CE320518DF5A8900CADB65 /* REDReducer.m in Sources */ = {isa = PBXBuildFile; fileRef = D4ACA67618DDFAD700EBD899 /* REDReducer.m */; };
 		D4CE320618DF5A8C00CADB65 /* REDFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = D4ACA67D18DE0AC100EBD899 /* REDFilter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D4CE320718DF5A9100CADB65 /* REDFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = D4ACA67E18DE0AC100EBD899 /* REDFilter.m */; };
+		D4DB7F301912A4B200E5CD5F /* REDConvolve.h in Headers */ = {isa = PBXBuildFile; fileRef = D4DB7F2E1912A4B200E5CD5F /* REDConvolve.h */; };
+		D4DB7F311912A4B200E5CD5F /* REDConvolve.m in Sources */ = {isa = PBXBuildFile; fileRef = D4DB7F2F1912A4B200E5CD5F /* REDConvolve.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +90,7 @@
 		D46D2B7818E11E800065701D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		D46D2B9118E1E2CE0065701D /* Lagrangian.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Lagrangian.framework; path = External/Lagrangian/build/Debug/Lagrangian.framework; sourceTree = "<group>"; };
 		D46D2B9418E1E2E70065701D /* libLagrangian.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libLagrangian.a; path = "External/Lagrangian/build/Debug-iphoneos/libLagrangian.a"; sourceTree = "<group>"; };
+		D4A553E1191FA54400DA2EAE /* Obstruct.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Obstruct.framework; path = External/Obstruct/build/Debug/Obstruct.framework; sourceTree = "<group>"; };
 		D4A553E3191FCB7300DA2EAE /* REDIterable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDIterable.h; sourceTree = "<group>"; };
 		D4A553E4191FCB7300DA2EAE /* REDIterable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDIterable.m; sourceTree = "<group>"; };
 		D4A553E91920275900DA2EAE /* REDLogic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDLogic.h; sourceTree = "<group>"; };
@@ -117,6 +121,8 @@
 		D4C87CCE18EB536500567D57 /* REDJoin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDJoin.m; sourceTree = "<group>"; };
 		D4CE31F018DF598B00CADB65 /* libReducers.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libReducers.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4CE31F118DF598B00CADB65 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		D4DB7F2E1912A4B200E5CD5F /* REDConvolve.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDConvolve.h; sourceTree = "<group>"; };
+		D4DB7F2F1912A4B200E5CD5F /* REDConvolve.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDConvolve.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +150,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4A553E2191FA54400DA2EAE /* Obstruct.framework in Frameworks */,
 				D46D2B9318E1E2DC0065701D /* Foundation.framework in Frameworks */,
 				D46D2B9018E11F920065701D /* XCTest.framework in Frameworks */,
 				D46D2B9218E1E2CE0065701D /* Lagrangian.framework in Frameworks */,
@@ -204,6 +211,7 @@
 		D4ACA63918DDEC4900EBD899 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D4A553E1191FA54400DA2EAE /* Obstruct.framework */,
 				D46D2B9418E1E2E70065701D /* libLagrangian.a */,
 				D46D2B9118E1E2CE0065701D /* Lagrangian.framework */,
 				D4ACA63A18DDEC4900EBD899 /* Cocoa.framework */,
@@ -266,6 +274,8 @@
 				D4ACA67A18DE015A00EBD899 /* REDMap.m */,
 				D4C87CCD18EB536500567D57 /* REDJoin.h */,
 				D4C87CCE18EB536500567D57 /* REDJoin.m */,
+				D4DB7F2E1912A4B200E5CD5F /* REDConvolve.h */,
+				D4DB7F2F1912A4B200E5CD5F /* REDConvolve.m */,
 			);
 			name = Reducers;
 			sourceTree = "<group>";
@@ -287,6 +297,7 @@
 				D4ACA67F18DE0AC100EBD899 /* REDFilter.h in Headers */,
 				D4ACA67B18DE015A00EBD899 /* REDMap.h in Headers */,
 				D4A553EB1920275900DA2EAE /* REDLogic.h in Headers */,
+				D4DB7F301912A4B200E5CD5F /* REDConvolve.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -492,6 +503,7 @@
 				D4ACA68B18DF440300EBD899 /* REDPair.m in Sources */,
 				D4ACA67C18DE015A00EBD899 /* REDMap.m in Sources */,
 				D4ACA68018DE0AC100EBD899 /* REDFilter.m in Sources */,
+				D4DB7F311912A4B200E5CD5F /* REDConvolve.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
