@@ -89,7 +89,7 @@ l3_test(@selector(red_reduce:usingBlock:)) {
 	__block id result = initial;
 	[self enumerateSubstringsInRange:(NSRange){ .length = self.length } options:NSStringEnumerationByComposedCharacterSequences usingBlock:^(NSString *substring, NSRange substringRange, NSRange enclosingRange, BOOL *stop) {
 		result = block(result, substring);
-		if (result != [result self]) *stop = YES;
+		*stop = result != [result self];
 	}];
 	return [result self];
 }
@@ -112,7 +112,7 @@ l3_test(@selector(red_reduce:usingBlock:)) {
 	__block id result = initial;
 	[self.string enumerateSubstringsInRange:(NSRange){ .length = self.length } options:NSStringEnumerationByComposedCharacterSequences usingBlock:^(NSString *substring, NSRange substringRange, NSRange enclosingRange, BOOL *stop) {
 		result = block(result, [self attributedSubstringFromRange:substringRange]);
-		if (result != [result self]) *stop = YES;
+		*stop = result != [result self];
 	}];
 	return [result self];
 }
