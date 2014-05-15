@@ -25,6 +25,21 @@ typedef id(^REDReducingBlock)(id into, id each);
 @end
 
 
+#pragma mark Early return
+
+/// An object which signals the completion of reduction.
+///
+/// Returning an instance of \c REDReduced during reduction causes the instance’s wrapped object to be returned as the result of the reduction without further evaluation.
+@interface REDReduced : NSObject
+
+/// Returns an instance wrapping \c object.
++(instancetype)reduced:(id)object;
+
+@property (readonly) id self;
+
+@end
+
+
 #pragma mark Categories
 
 /// \c NSArray conforms to \c REDReducible.

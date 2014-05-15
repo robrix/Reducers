@@ -2,7 +2,15 @@
 
 #import "REDReducible.h"
 
-#pragma mark Categories
+@implementation REDReduced
+
++(instancetype)reduced:(id)object {
+	REDReduced *reduced = [self new];
+	reduced->_self = object;
+	return reduced;
+}
+
+@end
 
 static inline id REDStrictReduce(id<NSFastEnumeration> collection, id initial, REDReducingBlock block) {
 	for (id each in collection) {
@@ -19,6 +27,8 @@ l3_test(&REDStrictReduce) {
 	l3_expect(REDStrictReduce(collection, initial, lastObject)).to.equal(collection.lastObject);
 }
 
+
+#pragma mark Categories
 
 @implementation NSArray (REDReducible)
 
