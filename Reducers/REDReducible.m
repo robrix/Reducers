@@ -2,13 +2,22 @@
 
 #import "REDReducible.h"
 
-#pragma mark Categories
+@implementation REDReduced
+
++(instancetype)reduced:(id)object {
+	REDReduced *reduced = [self new];
+	reduced->_self = object;
+	return reduced;
+}
+
+@end
 
 static inline id REDStrictReduce(id<NSFastEnumeration> collection, id initial, REDReducingBlock block) {
 	for (id each in collection) {
 		initial = block(initial, each);
+		if (initial != [initial self]) break;
 	}
-	return initial;
+	return [initial self];
 }
 
 l3_addTestSubjectTypeWithFunction(REDStrictReduce)
@@ -17,6 +26,9 @@ l3_test(&REDStrictReduce) {
 	id initial;
 	id (^each)(id, id) = ^(id into, id each) { return each; };
 	l3_expect(REDStrictReduce(collection, initial, each)).to.equal(collection.lastObject);
+	
+	id (^firstObject)(id, id) = ^(id into, id each) { return [REDReduced reduced:each]; };
+	l3_expect(REDStrictReduce(collection, initial, firstObject)).to.equal(collection.firstObject);
 }
 
 
@@ -37,6 +49,8 @@ l3_test(&REDStrictReduceRight) {
 	l3_expect(REDStrictReduceRight(collection, initial, each)).to.equal(collection.firstObject);
 }
 
+
+#pragma mark Categories
 
 @implementation NSArray (REDReducible)
 
@@ -93,14 +107,18 @@ l3_test(@selector(red_reduce:usingBlock:)) {
 	__block id result = initial;
 	[self enumerateSubstringsInRange:(NSRange){ .length = self.length } options:NSStringEnumerationByComposedCharacterSequences usingBlock:^(NSString *substring, NSRange substringRange, NSRange enclosingRange, BOOL *stop) {
 		result = block(result, substring);
+		if (result != [result self]) *stop = YES;
 	}];
-	return result;
+	return [result self];
 }
 
 l3_test(@selector(red_reduce:usingBlock:)) {
 	NSString *(^append)(NSString *, id) = ^(NSString *into, NSString *each) { return [into stringByAppendingString:each]; };
 	NSString *original = @"12345∆π¬µ∂🚑👖🐢🎈🔄";
 	l3_expect([original red_reduce:@"" usingBlock:append]).to.equal(original);
+	
+	id (^first)(id, id) = ^(id _, id each) { return [REDReduced reduced:each]; };
+	l3_expect([original red_reduce:@"" usingBlock:first]).to.equal([original substringToIndex:1]);
 }
 
 @end
@@ -112,8 +130,9 @@ l3_test(@selector(red_reduce:usingBlock:)) {
 	__block id result = initial;
 	[self.string enumerateSubstringsInRange:(NSRange){ .length = self.length } options:NSStringEnumerationByComposedCharacterSequences usingBlock:^(NSString *substring, NSRange substringRange, NSRange enclosingRange, BOOL *stop) {
 		result = block(result, [self attributedSubstringFromRange:substringRange]);
+		if (result != [result self]) *stop = YES;
 	}];
-	return result;
+	return [result self];
 }
 
 l3_test(@selector(red_reduce:usingBlock:)) {
@@ -122,8 +141,12 @@ l3_test(@selector(red_reduce:usingBlock:)) {
 		[copy appendAttributedString:each];
 		return copy;
 	};
-	NSAttributedString *original = [[NSAttributedString alloc] initWithString:@"♬🐡😠" attributes:@{ @"key": @"value" }];
+	NSDictionary *attributes = @{ @"key": @"value" };
+	NSAttributedString *original = [[NSAttributedString alloc] initWithString:@"♬🐡😠" attributes:attributes];
 	l3_expect([original red_reduce:[NSAttributedString new] usingBlock:append]).to.equal(original);
+	
+	id (^first)(id, id) = ^(id _, id each) { return [REDReduced reduced:each]; };
+	l3_expect([original red_reduce:@"" usingBlock:first]).to.equal([[NSAttributedString alloc] initWithString:@"♬" attributes:attributes]);
 }
 
 @end
@@ -135,8 +158,9 @@ l3_test(@selector(red_reduce:usingBlock:)) {
 	id each;
 	while ((each = [self nextObject])) {
 		initial = block(initial, each);
+		if (initial != [initial self]) break;
 	}
-	return initial;
+	return [initial self];
 }
 
 l3_test(@selector(red_reduce:usingBlock:)) {
@@ -147,6 +171,9 @@ l3_test(@selector(red_reduce:usingBlock:)) {
 		return into;
 	};
 	l3_expect([enumerator red_reduce:into usingBlock:append]).to.equal(@[ @3, @2, @1 ]);
+	
+	id (^first)(id, id) = ^(id _, id each) { return [REDReduced reduced:each]; };
+	l3_expect([[@[ @1, @2, @3 ] reverseObjectEnumerator] red_reduce:nil usingBlock:first]).to.equal(@3);
 }
 
 @end
