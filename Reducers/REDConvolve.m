@@ -75,8 +75,9 @@ l3_test(@selector(red_iterator)) {
 	__block id into = initial;
 	REDEnumerate(self.red_iterator, ^(id each, bool *stop) {
 		into = block(into, each);
+		*stop = into != [into self];
 	});
-	return into;
+	return [into self];
 }
 
 l3_test(@selector(red_reduce:usingBlock:)) {
