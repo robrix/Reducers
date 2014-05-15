@@ -20,14 +20,17 @@ id REDAnd(id<REDReducible> collection) {
 
 l3_addTestSubjectTypeWithFunction(REDAnd)
 l3_test(&REDAnd) {
-	__block NSUInteger outerEffects = 0;
-	id<REDReducible> map = REDMap(@[ @"a", @"b", @"c" ], ^(id each) {
-		++outerEffects;
+	__block NSUInteger effects = 0;
+	NSArray *collection = @[ @"a", @"b", @"c" ];
+	l3_expect(REDAnd(collection)).to.equal(collection.lastObject);
+	
+	id<REDReducible> map = REDMap(collection, ^(id each) {
+		++effects;
 		return (id)nil;
 	});
 	l3_expect(REDAnd(map)).to.equal(nil);
 	
-	l3_expect(outerEffects).to.equal(@1);
+	l3_expect(effects).to.equal(@1);
 }
 
 
