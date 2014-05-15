@@ -16,12 +16,9 @@ static inline id REDStrictReduce(id<NSFastEnumeration> collection, id initial, R
 	for (id each in collection) {
 		initial = block(initial, each);
 		id itself = [initial self];
-		if (initial != itself) {
-			initial = itself;
-			break;
-		}
+		if (initial != itself) break;
 	}
-	return initial;
+	return [initial self];
 }
 
 l3_addTestSubjectTypeWithFunction(REDStrictReduce)
