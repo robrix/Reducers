@@ -36,9 +36,7 @@ l3_test(&REDAnd) {
 
 id REDOr(id<REDReducible> collection) {
 	return [collection red_reduce:nil usingBlock:^(id into, id each) {
-		return into?
-			[REDReduced reduced:into]
-		:	each;
+		return into ?: (each? [REDReduced reduced:each] : nil);
 	}];
 }
 
