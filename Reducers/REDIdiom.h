@@ -5,8 +5,8 @@
 
 @protocol REDIdiom <NSObject>
 
--(instancetype)red_map:(REDMapBlock)map;
--(instancetype)red_flattenMap:(REDFlattenMapBlock)map;
--(instancetype)red_filter:(REDPredicateBlock)predicate;
+-(id<REDReducible>)red_map:(REDMapBlock)map;
+-(id<REDReducible>)red_flattenMap:(REDFlattenMapBlock)map;
+-(id<REDReducible>)red_filter:(REDPredicateBlock)predicate;
 
 @end
