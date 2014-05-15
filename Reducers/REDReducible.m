@@ -15,8 +15,7 @@
 static inline id REDStrictReduce(id<NSFastEnumeration> collection, id initial, REDReducingBlock block) {
 	for (id each in collection) {
 		initial = block(initial, each);
-		id itself = [initial self];
-		if (initial != itself) break;
+		if (initial != [initial self]) break;
 	}
 	return [initial self];
 }
