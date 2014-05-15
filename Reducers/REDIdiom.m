@@ -1,6 +1,7 @@
 //  Copyright (c) 2014 Rob Rix. All rights reserved.
 
 #import "REDIdiom.h"
+#import "REDJoin.h"
 
 #pragma mark Categories
 
@@ -16,6 +17,10 @@
 
 -(id<REDReducible>)red_filter:(REDPredicateBlock)predicate {
 	return REDFilter(self, predicate);
+}
+
+-(id<REDReducible>)red_join:(id)separator {
+	return REDJoin(self, separator);
 }
 
 @end

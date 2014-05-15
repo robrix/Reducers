@@ -10,6 +10,7 @@
 -(id<REDReducible>)red_map:(REDMapBlock)map;
 -(id<REDReducible>)red_flattenMap:(REDFlattenMapBlock)map;
 -(id<REDReducible>)red_filter:(REDPredicateBlock)predicate;
+-(id<REDReducible>)red_join:(id)separator;
 
 @end
 
