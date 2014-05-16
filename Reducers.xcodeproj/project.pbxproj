@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		D40D7B2518E282490065BB70 /* Reducers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4ACA63718DDEC4900EBD899 /* Reducers.framework */; };
+		D418C0FC19258D85002983F0 /* REDConvolve.m in Sources */ = {isa = PBXBuildFile; fileRef = D4DB7F2F1912A4B200E5CD5F /* REDConvolve.m */; };
+		D418C0FD19258D89002983F0 /* REDConvolve.h in Headers */ = {isa = PBXBuildFile; fileRef = D4DB7F2E1912A4B200E5CD5F /* REDConvolve.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D46D2B6218E11E490065701D /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4ACA64F18DDEC4A00EBD899 /* XCTest.framework */; };
 		D46D2B6A18E11E490065701D /* ReducersTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D46D2B6918E11E490065701D /* ReducersTests.m */; };
 		D46D2B7618E11E800065701D /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4ACA64F18DDEC4A00EBD899 /* XCTest.framework */; };
@@ -61,7 +63,7 @@
 		D4CE320518DF5A8900CADB65 /* REDReducer.m in Sources */ = {isa = PBXBuildFile; fileRef = D4ACA67618DDFAD700EBD899 /* REDReducer.m */; };
 		D4CE320618DF5A8C00CADB65 /* REDFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = D4ACA67D18DE0AC100EBD899 /* REDFilter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D4CE320718DF5A9100CADB65 /* REDFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = D4ACA67E18DE0AC100EBD899 /* REDFilter.m */; };
-		D4DB7F301912A4B200E5CD5F /* REDConvolve.h in Headers */ = {isa = PBXBuildFile; fileRef = D4DB7F2E1912A4B200E5CD5F /* REDConvolve.h */; };
+		D4DB7F301912A4B200E5CD5F /* REDConvolve.h in Headers */ = {isa = PBXBuildFile; fileRef = D4DB7F2E1912A4B200E5CD5F /* REDConvolve.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D4DB7F311912A4B200E5CD5F /* REDConvolve.m in Sources */ = {isa = PBXBuildFile; fileRef = D4DB7F2F1912A4B200E5CD5F /* REDConvolve.m */; };
 /* End PBXBuildFile section */
 
@@ -313,6 +315,7 @@
 				D4CE320418DF5A8500CADB65 /* REDReducer.h in Headers */,
 				D4A553E6191FCB7300DA2EAE /* REDIterable.h in Headers */,
 				D4CE31FB18DF599F00CADB65 /* Reducers.h in Headers */,
+				D418C0FD19258D89002983F0 /* REDConvolve.h in Headers */,
 				D4CE320318DF5A7000CADB65 /* REDReducible.h in Headers */,
 				D4A553EE1920276200DA2EAE /* REDLogic.h in Headers */,
 			);
@@ -512,6 +515,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4CE320118DF5A6200CADB65 /* REDPair.m in Sources */,
+				D418C0FC19258D85002983F0 /* REDConvolve.m in Sources */,
 				D4A553ED1920275C00DA2EAE /* REDLogic.m in Sources */,
 				D4CE320718DF5A9100CADB65 /* REDFilter.m in Sources */,
 				D4C87CD218EB536500567D57 /* REDJoin.m in Sources */,

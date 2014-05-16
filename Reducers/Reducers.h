@@ -13,6 +13,7 @@
 #import <Reducers/REDMap.h>
 #import <Reducers/REDFilter.h>
 #import <Reducers/REDJoin.h>
+#import <Reducers/REDConvolve.h>
 
 
 #pragma mark Operators
