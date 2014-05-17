@@ -8,7 +8,7 @@
 
 -(REDIteratingBlock)red_iterator {
 	return ^{
-		return (id)nil;
+		return self.sample;
 	};
 }
 

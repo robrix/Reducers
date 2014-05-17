@@ -4,4 +4,7 @@
 #import <Reducers/REDReducible.h>
 
 @interface REDSource : NSObject <REDIterable, REDReducible>
+
+@property (readonly) id sample;
+
 @end
