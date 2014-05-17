@@ -16,7 +16,12 @@
 #pragma mark REDReducible
 
 -(id)red_reduce:(id)initial usingBlock:(REDReducingBlock)block {
-	return nil;
+	__block id into = initial;
+	REDEnumerate(self.red_iterator, ^(id each, bool *stop) {
+		into = block(into, each);
+		*stop = into != [into self];
+	});
+	return [into self];
 }
 
 @end
