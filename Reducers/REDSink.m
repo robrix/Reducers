@@ -23,8 +23,20 @@
 }
 
 -(instancetype)red_append:(id<REDReducible>)from {
-	
-	return nil;
+	return [from red_reduce:self usingBlock:^(REDSink *into, id each) {
+		into->_block(each);
+		return into;
+	}];
+}
+
+l3_test(@selector(red_append:)) {
+	NSMutableArray *appendee = [NSMutableArray new];
+	REDSink *appender = [REDSink sinkWithBlock:^(id each) {
+		[appendee addObject:each];
+	}];
+	id<REDReducible> reducible = @[ @0, @1, @2, @3 ];
+	[appender red_append:reducible];
+	l3_expect(appendee).to.equal(reducible);
 }
 
 @end
