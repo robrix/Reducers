@@ -178,6 +178,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D418C16819271D75002983F0 /* Signals */ = {
+			isa = PBXGroup;
+			children = (
+				D418C16219271ADD002983F0 /* REDSink.h */,
+				D418C16319271ADD002983F0 /* REDSink.m */,
+			);
+			name = Signals;
+			sourceTree = "<group>";
+		};
 		D46D2B6318E11E490065701D /* Reducers Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -250,8 +259,7 @@
 				D4ACA67418DDF99400EBD899 /* Reducers */,
 				D4ACA68118DE114900EBD899 /* REDAppendable.h */,
 				D4ACA68218DE114900EBD899 /* REDAppendable.m */,
-				D418C16219271ADD002983F0 /* REDSink.h */,
-				D418C16319271ADD002983F0 /* REDSink.m */,
+				D418C16819271D75002983F0 /* Signals */,
 				D4A553E3191FCB7300DA2EAE /* REDIterable.h */,
 				D4A553E4191FCB7300DA2EAE /* REDIterable.m */,
 				D4A553E91920275900DA2EAE /* REDLogic.h */,
