@@ -4,6 +4,15 @@
 
 @implementation REDSource
 
+#pragma mark REDIterable
+
+-(REDIteratingBlock)red_iterator {
+	return ^{
+		return (id)nil;
+	};
+}
+
+
 #pragma mark REDReducible
 
 -(id)red_reduce:(id)initial usingBlock:(REDReducingBlock)block {
