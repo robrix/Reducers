@@ -129,7 +129,7 @@ static void * const REDObserverContext = (void *)&REDObserverContext;
 
 -(REDIteratingBlock)red_iterator {
 	return ^{
-		return self.sample;
+		return [REDObserver observerWithTarget:self keyPath:@"sample" initial:nil block:^(id into, id each) { return each; }];
 	};
 }
 
