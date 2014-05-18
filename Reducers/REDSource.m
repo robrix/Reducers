@@ -1,6 +1,9 @@
 //  Copyright (c) 2014 Rob Rix. All rights reserved.
 
 #import "REDSource.h"
+#import "REDConvolve.h"
+#import "REDFilter.h"
+#import "REDMap.h"
 
 @interface NSObject (REDObject)
 
@@ -109,6 +112,67 @@ static void * const REDObserverContext = (void *)&REDObserverContext;
 	} else {
 		[super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
 	}
+}
+
+@end
+
+
+@interface REDLatch : NSObject <REDIterable, REDReducible>
+
+@property id sample;
+
+@end
+
+@implementation REDLatch
+
+#pragma mark REDIterable
+
+-(REDIteratingBlock)red_iterator {
+	return ^{
+		return self.sample;
+	};
+}
+
+
+#pragma mark REDReducible
+
+-(id)red_reduce:(id)initial usingBlock:(REDReducingBlock)block {
+	return [REDObserver observerWithTarget:self keyPath:@"sample" initial:initial block:block];
+}
+
+l3_test(@selector(red_reduce:usingBlock:)) {
+	REDLatch *a = [REDLatch new];
+	REDLatch *b = [REDLatch new];
+	
+	id<REDReducible> left = REDMap(REDFilter(a, ^bool (NSString *each) { return ![each hasPrefix:@"b"]; }), ^(id each) { return [each stringByAppendingString:each]; });
+	id<REDReducible> right = b;
+	
+	__block id current;
+	REDObserver *observer = [REDConvolve(@[ left, right ], ^(NSString *a, NSString *b) { return [a stringByAppendingString:b ?: @""]; }) red_reduce:current usingBlock:^(id into, id each) {
+		return current = each;
+	}];
+	
+	l3_expect(current).to.equal(nil);
+	
+	a.sample = @"";
+	l3_expect(current).to.equal(@"");
+	
+	a.sample = @"because";
+	l3_expect(current).to.equal(@"");
+	
+	a.sample = @"a";
+	l3_expect(current).to.equal(@"aa");
+	
+	a.sample = @"b";
+	l3_expect(current).to.equal(@"aa");
+	
+	a.sample = @"c";
+	l3_expect(current).to.equal(@"cc");
+	
+	b.sample = @"d";
+	l3_expect(current).to.equal(@"ccd");
+	
+	[observer stopObserving];
 }
 
 @end
