@@ -148,29 +148,41 @@ l3_test(@selector(red_reduce:usingBlock:)) {
 	id<REDReducible> right = b;
 	
 	__block id current;
-	REDObserver *observer = [REDConvolve(@[ left, right ], ^(NSString *a, NSString *b) { return [a stringByAppendingString:b ?: @""]; }) red_reduce:current usingBlock:^(id into, id each) {
+	__block NSUInteger effects = 0;
+	
+	id<REDReducible> reducible = REDConvolve(@[ left, right ], ^(NSString *a, NSString *b) { return [a stringByAppendingString:b ?: @""]; });
+	
+	REDObserver *observer = [reducible red_reduce:current usingBlock:^(id into, id each) {
+		effects += 1;
 		return current = each;
 	}];
 	
 	l3_expect(current).to.equal(nil);
+	l3_expect(effects).to.equal(@1);
 	
 	a.sample = @"";
 	l3_expect(current).to.equal(@"");
+	l3_expect(effects).to.equal(@2);
 	
 	a.sample = @"because";
 	l3_expect(current).to.equal(@"");
+	l3_expect(effects).to.equal(@2);
 	
 	a.sample = @"a";
 	l3_expect(current).to.equal(@"aa");
+	l3_expect(effects).to.equal(@3);
 	
 	a.sample = @"b";
 	l3_expect(current).to.equal(@"aa");
+	l3_expect(effects).to.equal(@3);
 	
 	a.sample = @"c";
 	l3_expect(current).to.equal(@"cc");
+	l3_expect(effects).to.equal(@4);
 	
 	b.sample = @"d";
 	l3_expect(current).to.equal(@"ccd");
+	l3_expect(effects).to.equal(@5);
 	
 	[observer stopObserving];
 }
