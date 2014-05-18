@@ -81,10 +81,14 @@ l3_test(@selector(red_iterator)) {
 }
 
 l3_test(@selector(red_reduce:usingBlock:)) {
-	NSArray *convolution = [NSArray red_append:REDConvolve(@[ @"fish", @"face" ], ^(NSString *a, NSString *b) {
+	REDReducingBlock append = ^(NSString *a, NSString *b) {
 		return [a stringByAppendingString:b];
-	})];
+	};
+	NSArray *convolution = [NSArray red_append:REDConvolve(@[ @"fish", @"face" ], append)];
 	l3_expect(convolution).to.equal(@[ @"ff", @"ia", @"sc", @"he" ]);
+	
+	convolution = [NSArray red_append:REDConvolve(@[ REDMap(@"fish", ^(NSString *each) { return [each stringByAppendingString:each]; }), @"face" ], append)];
+	l3_expect(convolution).to.equal(@[ @"fff", @"iia", @"ssc", @"hhe" ]);
 }
 
 @end
