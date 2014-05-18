@@ -19,6 +19,25 @@
 	};
 }
 
+/*
+ 
+ - notify when updated
+ - maps, flatten maps, filters, convolutions, joins, etc, are lazy
+	- only applied once reduced
+	- reducers pass notifications along
+		- filters omit notifications for filtered items
+		- flatten maps & joins multiply notifications for produced items
+		- convolutions coalesce notifications from each iterable into a single notification
+ - -red_reduce:usingBlock: forces
+ - -red_reduce:usingBlock: returns an observer of the ongoing reduction, which can be used to cancel it
+ 
+ - KVO source
+ - KVO diff source
+ - notification source
+ 
+ - latch source
+ 
+ */
 
 #pragma mark REDReducible
 
@@ -30,6 +49,10 @@
 	});
 	return [into self];
 }
+
+// source with no observers does not evaluate
+// source with an observer evaluates
+// source with an observer evaluates every time it is updated
 
 @end
 
