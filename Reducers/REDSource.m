@@ -1,9 +1,9 @@
 //  Copyright (c) 2014 Rob Rix. All rights reserved.
 
-#import "REDSource.h"
 #import "REDConvolve.h"
 #import "REDFilter.h"
 #import "REDMap.h"
+#import "REDSource.h"
 
 @interface NSObject (REDObject)
 
