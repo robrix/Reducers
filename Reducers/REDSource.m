@@ -152,6 +152,8 @@ l3_test(@selector(red_reduce:usingBlock:)) {
 	
 	id<REDReducible> reducible = REDConvolve(@[ left, right ], ^(NSString *a, NSString *b) { return [a stringByAppendingString:b ?: @""]; });
 	
+	reducible = left;
+	
 	REDObserver *observer = [reducible red_reduce:current usingBlock:^(id into, id each) {
 		effects += 1;
 		return current = each;
