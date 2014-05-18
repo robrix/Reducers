@@ -10,11 +10,11 @@
 
 @interface REDConvolver : NSObject <REDReducible, REDIterable>
 
-+(instancetype)convolverWithReducibles:(id<REDReducible>)reducibles convolution:(REDConvolutionBlock)convolution;
++(instancetype)convolverWithReducibles:(id<REDIterable, REDReducible>)reducibles convolution:(REDConvolutionBlock)convolution;
 
 @end
 
-id<REDIterable, REDReducible> REDConvolve(id<REDReducible> reducibles, REDConvolutionBlock convolution) {
+id<REDIterable, REDReducible> REDConvolve(id<REDIterable, REDReducible> reducibles, REDConvolutionBlock convolution) {
 	return [REDConvolver convolverWithReducibles:reducibles convolution:convolution];
 }
 
@@ -22,15 +22,15 @@ id<REDIterable, REDReducible> REDConvolve(id<REDReducible> reducibles, REDConvol
 #pragma mark Convolution
 
 @implementation REDConvolver {
-	id<REDReducible> _reducibles;
+	id<REDIterable, REDReducible> _reducibles;
 	REDConvolutionBlock _convolution;
 }
 
-+(instancetype)convolverWithReducibles:(id<REDReducible>)reducibles convolution:(REDConvolutionBlock)convolution {
++(instancetype)convolverWithReducibles:(id<REDIterable, REDReducible>)reducibles convolution:(REDConvolutionBlock)convolution {
 	return [[self alloc] initWithReducibles:reducibles convolution:convolution];
 }
 
--(instancetype)initWithReducibles:(id<REDReducible>)reducibles convolution:(REDConvolutionBlock)convolution {
+-(instancetype)initWithReducibles:(id<REDIterable, REDReducible>)reducibles convolution:(REDConvolutionBlock)convolution {
 	if ((self = [super init])) {
 		_reducibles = reducibles;
 		_convolution = [convolution copy];
