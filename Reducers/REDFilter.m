@@ -5,7 +5,7 @@
 
 #pragma mark Filter
 
-id<REDReducible> REDFilter(id<REDReducible> collection, REDPredicateBlock predicate) {
+id<REDIterable, REDReducible> REDFilter(id<REDIterable, REDReducible> collection, REDPredicateBlock predicate) {
 	return [REDReducer reducerWithReducible:collection transformer:^REDReducingBlock(REDReducingBlock reduce) {
 		// Reduce only those elements which match the predicate.
 		return ^(id into, id each) {

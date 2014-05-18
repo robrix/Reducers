@@ -1,5 +1,6 @@
 //  Copyright (c) 2014 Rob Rix. All rights reserved.
 
+#import <Reducers/REDIterable.h>
 #import <Reducers/REDReducible.h>
 
 /// A block which takes a reducing block and returns another reducing block which can be used to apply some transformation to the reduction.
@@ -11,7 +12,7 @@ typedef REDReducingBlock (^REDReducingTransformerBlock)(REDReducingBlock reduce)
 
 
 /// A reducible object which applies some transformation to the block it is reduced with.
-@interface REDReducer : NSObject <REDReducible>
+@interface REDReducer : NSObject <REDIterable, REDReducible>
 
 /// Create a reducer which, when reduced, reduces \c reducible using the result of applying \c transformer to the reducing block passed to it.
 ///
@@ -19,6 +20,6 @@ typedef REDReducingBlock (^REDReducingTransformerBlock)(REDReducingBlock reduce)
 /// \param transformer The transforming block which the new reducer will use when reduced. May not be nil.
 ///
 /// \return A new reducer which reduces over \c reducible using reducing blocks transformed by \c transformer.
-+(instancetype)reducerWithReducible:(id<REDReducible>)reducible transformer:(REDReducingTransformerBlock)transformer;
++(instancetype)reducerWithReducible:(id<REDIterable, REDReducible>)reducible transformer:(REDReducingTransformerBlock)transformer;
 
 @end

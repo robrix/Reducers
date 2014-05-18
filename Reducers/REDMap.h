@@ -1,5 +1,6 @@
 //  Copyright (c) 2014 Rob Rix. All rights reserved.
 
+#import <Reducers/REDIterable.h>
 #import <Reducers/REDReducible.h>
 
 #pragma mark Map
@@ -18,7 +19,7 @@ typedef id (^REDMapBlock)(id each);
 /// \param map The block to map with. Must not be nil.
 ///
 /// \return A reducible which, when reduced, maps each element of \c collection using \c map.
-id<REDReducible> REDMap(id<REDReducible> collection, REDMapBlock map);
+id<REDIterable, REDReducible> REDMap(id<REDIterable, REDReducible> collection, REDMapBlock map);
 
 
 #pragma mark Flatten map
@@ -28,7 +29,7 @@ id<REDReducible> REDMap(id<REDReducible> collection, REDMapBlock map);
 /// \param each The object being mapped. Flattening is applied after mapping, so the arguments passed here will be the branches, not the leaves, if applicable.
 ///
 /// \return The result of the map applied to \c each. This must return a reducible, regardless of whether \c each is itself reducible.
-typedef id<REDReducible> (^REDFlattenMapBlock)(id each);
+typedef id<REDIterable, REDReducible> (^REDFlattenMapBlock)(id each);
 
 
 /// A reducer which applies a map to each reducible element, and flattens the results.
@@ -37,7 +38,7 @@ typedef id<REDReducible> (^REDFlattenMapBlock)(id each);
 /// \param map The block to map with. Note that this must return a result conforming to the \c REDReducible protocol so that it can be concatenated. Must not be nil.
 ///
 /// \return A reducible which, when reduced, concatenates the results of mapping each element of \c collection using \c map.
-id<REDReducible> REDFlattenMap(id<REDReducible> collection, REDFlattenMapBlock map);
+id<REDIterable, REDReducible> REDFlattenMap(id<REDIterable, REDReducible> collection, REDFlattenMapBlock map);
 
 
 #pragma mark Identity

@@ -1,5 +1,6 @@
 //  Copyright (c) 2014 Rob Rix. All rights reserved.
 
+#import <Reducers/REDIterable.h>
 #import <Reducers/REDReducible.h>
 
 #pragma mark Filter
@@ -16,7 +17,7 @@ typedef bool (^REDPredicateBlock)(id subject);
 /// \param collection  The collection to filter.
 /// \param predicate   The predicate to apply to each element.
 /// \return            A reducible which, when reduced, produces the elements of \c collection which are matched by \c predicate.
-id<REDReducible> REDFilter(id<REDReducible> collection, REDPredicateBlock predicate);
+id<REDIterable, REDReducible> REDFilter(id<REDIterable, REDReducible> collection, REDPredicateBlock predicate);
 
 
 #pragma mark Linear search
