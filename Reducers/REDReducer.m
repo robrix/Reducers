@@ -3,20 +3,31 @@
 #import "REDReducer.h"
 
 @implementation REDReducer {
-	id<REDReducible> _reducible;
+	id<REDIterable, REDReducible> _reducible;
 	REDReducingTransformerBlock _transformer;
 }
 
-+(instancetype)reducerWithReducible:(id<REDReducible>)reducible transformer:(REDReducingTransformerBlock)transformer {
++(instancetype)reducerWithReducible:(id<REDIterable, REDReducible>)reducible transformer:(REDReducingTransformerBlock)transformer {
 	return [[self alloc] initWithReducible:reducible transformer:transformer];
 }
 
--(instancetype)initWithReducible:(id<REDReducible>)reducible transformer:(REDReducingTransformerBlock)transformer {
+-(instancetype)initWithReducible:(id<REDIterable, REDReducible>)reducible transformer:(REDReducingTransformerBlock)transformer {
 	if ((self = [super init])) {
 		_reducible = reducible;
 		_transformer = [transformer copy];
 	}
 	return self;
+}
+
+
+#pragma mark REDIterable
+
+-(REDIteratingBlock)red_iterator {
+	REDReducingBlock transformed = _transformer(^(id into, id each) { return each; });
+	REDIteratingBlock iterator = _reducible.red_iterator;
+	return ^{
+		return transformed(nil, iterator());
+	};
 }
 
 
