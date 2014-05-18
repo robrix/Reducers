@@ -5,7 +5,7 @@
 
 #pragma mark Map
 
-id<REDReducible> REDMap(id<REDReducible> collection, REDMapBlock map) {
+id<REDIterable, REDReducible> REDMap(id<REDIterable, REDReducible> collection, REDMapBlock map) {
 	return [REDReducer reducerWithReducible:collection transformer:^(REDReducingBlock reduce) {
 		// Map each object before reducing.
 		return ^(id into, id each) {
@@ -16,7 +16,7 @@ id<REDReducible> REDMap(id<REDReducible> collection, REDMapBlock map) {
 
 l3_addTestSubjectTypeWithFunction(REDMap)
 l3_test(&REDMap) {
-	id<REDReducible> collection = @[ @"a", @"b", @"c" ];
+	id<REDIterable, REDReducible> collection = @[ @"a", @"b", @"c" ];
 	REDReducingBlock append = ^(NSArray *into, id each) {
 		return [into arrayByAddingObject:each];
 	};
@@ -39,7 +39,7 @@ l3_test(&REDMap) {
 
 #pragma mark Flatten map
 
-id<REDReducible> REDFlattenMap(id<REDReducible> collection, REDFlattenMapBlock map) {
+id<REDIterable, REDReducible> REDFlattenMap(id<REDIterable, REDReducible> collection, REDFlattenMapBlock map) {
 	return [REDReducer reducerWithReducible:collection transformer:^REDReducingBlock(REDReducingBlock reduce) {
 		// Reduce into each mapped object.
 		return ^(id into, id each) {
@@ -49,12 +49,12 @@ id<REDReducible> REDFlattenMap(id<REDReducible> collection, REDFlattenMapBlock m
 }
 
 l3_test(&REDFlattenMap) {
-	id<REDReducible> nestedCollection = @[ @[ @4, @3 ], @[ @2, @1 ] ];
+	id<REDIterable, REDReducible> nestedCollection = @[ @[ @4, @3 ], @[ @2, @1 ] ];
 	REDReducingBlock append = ^(NSArray *into, id each) {
 		return [into arrayByAddingObject:each];
 	};
 	NSArray *into = @[];
-	id<REDReducible> flattened = @[ @4, @3, @2, @1 ];
+	id<REDIterable, REDReducible> flattened = @[ @4, @3, @2, @1 ];
 	l3_expect([REDFlattenMap(nestedCollection, REDIdentityMapBlock) red_reduce:into usingBlock:append]).to.equal(flattened);
 	
 	REDFlattenMapBlock wrap = ^(id each) { return @[ each ]; };
