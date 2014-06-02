@@ -53,13 +53,8 @@ l3_test(@selector(red_byAppending:)) {
 
 @implementation NSOrderedSet (REDAppendable)
 
-static NSMutableOrderedSet *(^const REDMutableOrderedSetAppend)(NSMutableOrderedSet *, id) = ^(NSMutableOrderedSet *into, id each) {
-	[into addObject:each];
-	return into;
-};
-
 -(NSOrderedSet *)red_byAppending:(id<REDReducible>)from {
-	return [from red_reduce:[self mutableCopy] usingBlock:REDMutableOrderedSetAppend];
+	return [[self mutableCopy] red_append:from];
 }
 
 l3_test(@selector(red_byAppending:)) {
@@ -72,7 +67,7 @@ l3_test(@selector(red_byAppending:)) {
 
 
 +(NSOrderedSet *)red_byAppending:(id<REDReducible>)from {
-	return [[self new] red_byAppending:from];
+	return [[NSMutableOrderedSet new] red_append:from];
 }
 
 @end
@@ -184,6 +179,20 @@ static NSMutableSet *(^const REDMutableSetAppend)(NSMutableSet *, id) = ^(NSMuta
 
 -(instancetype)red_append:(id<REDReducible>)from {
 	return [from red_reduce:self usingBlock:REDMutableSetAppend];
+}
+
+@end
+
+
+@implementation NSMutableOrderedSet (REDMutableAppendable)
+
+static NSMutableOrderedSet *(^const REDMutableOrderedSetAppend)(NSMutableOrderedSet *, id) = ^(NSMutableOrderedSet *into, id each) {
+	[into addObject:each];
+	return into;
+};
+
+-(instancetype)red_append:(id<REDReducible>)from {
+	return [from red_reduce:self usingBlock:REDMutableOrderedSetAppend];
 }
 
 @end
