@@ -103,6 +103,8 @@
 
 
 /// \c NSAttributedString conforms to \c REDAppendable.
+///
+/// The reducible being appended must produce non-nil \c NSAttributedString instances.
 @interface NSAttributedString (REDAppendable) <REDAppendable>
 
 -(NSAttributedString *)red_byAppending:(id<REDReducible>)from;
