@@ -20,6 +20,18 @@
 @end
 
 
+/// A collection or other object which can be appended onto in place.
+@protocol REDMutableAppendable <REDAppendable>
+
+/// Append the objects in \c from onto the receiver.
+///
+/// \param from  The reducible to append onto the receiver.
+/// \return      The receiver.
+-(instancetype)red_append:(id<REDReducible>)from;
+
+@end
+
+
 #pragma mark Categories
 
 /// \c NSArray conforms to \c REDAppendable.
