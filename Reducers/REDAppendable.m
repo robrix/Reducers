@@ -7,11 +7,6 @@
 
 @implementation NSArray (REDAppendable)
 
-static NSMutableArray *(^const REDMutableArrayAppend)(NSMutableArray *, id) = ^(NSMutableArray *into, id each) {
-	[into addObject:each];
-	return into;
-};
-
 -(NSArray *)red_byAppending:(id<REDReducible>)from {
 	return [[self mutableCopy] red_append:from];
 }
@@ -173,11 +168,13 @@ l3_test(@selector(red_byAppending:)) {
 
 @implementation NSMutableArray (REDMutableAppendable)
 
+static NSMutableArray *(^const REDMutableArrayAppend)(NSMutableArray *, id) = ^(NSMutableArray *into, id each) {
+	[into addObject:each];
+	return into;
+};
+
 -(instancetype)red_append:(id<REDReducible>)from {
-	return [from red_reduce:self usingBlock:^(NSMutableArray *into, id each) {
-		[self addObject:each];
-		return self;
-	}];
+	return [from red_reduce:self usingBlock:REDMutableArrayAppend];
 }
 
 @end
