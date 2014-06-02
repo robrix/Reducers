@@ -3,6 +3,8 @@
 #import "REDAppendable.h"
 #import "REDPair.h"
 
+#pragma mark REDAppendable categories
+
 @implementation NSArray (REDAppendable)
 
 static NSMutableArray *(^const REDMutableArrayAppend)(NSMutableArray *, id) = ^(NSMutableArray *into, id each) {
@@ -11,7 +13,7 @@ static NSMutableArray *(^const REDMutableArrayAppend)(NSMutableArray *, id) = ^(
 };
 
 -(NSArray *)red_byAppending:(id<REDReducible>)from {
-	return [from red_reduce:[self mutableCopy] usingBlock:REDMutableArrayAppend];
+	return [[self mutableCopy] red_append:from];
 }
 
 l3_test(@selector(red_byAppending:)) {
@@ -25,7 +27,7 @@ l3_test(@selector(red_byAppending:)) {
 
 
 +(NSArray *)red_byAppending:(id<REDReducible>)from {
-	return [[self new] red_byAppending:from];
+	return [[NSMutableArray new] red_append:from];
 }
 
 @end
@@ -162,6 +164,20 @@ l3_test(@selector(red_byAppending:)) {
 
 +(NSAttributedString *)red_byAppending:(id<REDReducible>)from {
 	return [[self new] red_byAppending:from];
+}
+
+@end
+
+
+#pragma mark REDMutableAppendable categories
+
+@implementation NSMutableArray (REDMutableAppendable)
+
+-(instancetype)red_append:(id<REDReducible>)from {
+	return [from red_reduce:self usingBlock:^(NSMutableArray *into, id each) {
+		[self addObject:each];
+		return self;
+	}];
 }
 
 @end

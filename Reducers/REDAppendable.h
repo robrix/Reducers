@@ -42,6 +42,11 @@
 @end
 
 
+/// \c NSMutableArray conforms to \c REDMutableAppendable.
+@interface NSMutableArray (REDMutableAppendable) <REDMutableAppendable>
+@end
+
+
 /// \c NSSet conforms to \c REDAppendable.
 @interface NSSet (REDAppendable) <REDAppendable>
 
