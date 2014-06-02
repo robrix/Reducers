@@ -55,6 +55,11 @@
 @end
 
 
+/// \c NSMutableSet conforms to \c REDMutableAppendable.
+@interface NSMutableSet (REDMutableAppendable) <REDMutableAppendable>
+@end
+
+
 /// \c NSOrderedSet conforms to \c REDAppendable.
 @interface NSOrderedSet (REDAppendable) <REDAppendable>
 

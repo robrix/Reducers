@@ -30,13 +30,8 @@ l3_test(@selector(red_byAppending:)) {
 
 @implementation NSSet (REDAppendable)
 
-static NSMutableSet *(^const REDMutableSetAppend)(NSMutableSet *, id) = ^(NSMutableSet *into, id each) {
-	[into addObject:each];
-	return into;
-};
-
 -(NSSet *)red_byAppending:(id<REDReducible>)from {
-	return [from red_reduce:[self mutableCopy] usingBlock:REDMutableSetAppend];
+	return [[self mutableCopy] red_append:from];
 }
 
 l3_test(@selector(red_byAppending:)) {
@@ -50,7 +45,7 @@ l3_test(@selector(red_byAppending:)) {
 
 
 +(NSSet *)red_byAppending:(id<REDReducible>)from {
-	return [[self new] red_byAppending:from];
+	return [[NSMutableSet new] red_append:from];
 }
 
 @end
@@ -175,6 +170,20 @@ static NSMutableArray *(^const REDMutableArrayAppend)(NSMutableArray *, id) = ^(
 
 -(instancetype)red_append:(id<REDReducible>)from {
 	return [from red_reduce:self usingBlock:REDMutableArrayAppend];
+}
+
+@end
+
+
+@implementation NSMutableSet (REDMutableAppendable)
+
+static NSMutableSet *(^const REDMutableSetAppend)(NSMutableSet *, id) = ^(NSMutableSet *into, id each) {
+	[into addObject:each];
+	return into;
+};
+
+-(instancetype)red_append:(id<REDReducible>)from {
+	return [from red_reduce:self usingBlock:REDMutableSetAppend];
 }
 
 @end
