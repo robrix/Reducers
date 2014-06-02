@@ -41,7 +41,6 @@
 
 @end
 
-
 /// \c NSMutableArray conforms to \c REDMutableAppendable.
 @interface NSMutableArray (REDMutableAppendable) <REDMutableAppendable>
 @end
@@ -54,7 +53,6 @@
 
 @end
 
-
 /// \c NSMutableSet conforms to \c REDMutableAppendable.
 @interface NSMutableSet (REDMutableAppendable) <REDMutableAppendable>
 @end
@@ -66,7 +64,6 @@
 -(NSOrderedSet *)red_byAppending:(id<REDReducible>)from;
 
 @end
-
 
 /// \c NSMutableOrderedSet conforms to \c REDMutableAppendable.
 @interface NSMutableOrderedSet (REDMutableAppendable) <REDMutableAppendable>
