@@ -5,10 +5,10 @@
 /// A collection or other object which can create new instances by appending onto it.
 @protocol REDAppendable <NSObject>
 
-/// Append the objects in \c from onto the receiver.
+/// Append the objects in \c from onto a copy of the receiver.
 ///
-/// \param from  The reducible to append onto the receiver.
-/// \return      An appendable with the objects in \c from appended onto it. This should generally be a (presumably immutable) copy, and thus, where applicable, should be typed as the receiving class’ immutable superclass, rather than \c instancetype.
+/// \param from  The reducible to append onto a copy of the receiver.
+/// \return      An appendable with the objects in \c from appended onto it. This should be an immutable copy (at least in type), and thus, where applicable, should be typed as the receiving class’ immutable superclass, rather than \c instancetype.
 -(instancetype)red_byAppending:(id<REDReducible>)from;
 
 /// Calls \c -red_byAppending: on an empty instance of \c self.
