@@ -95,6 +95,12 @@
 
 @end
 
+/// \c NSMutableString conforms to \c REDMutableAppendable.
+///
+/// The reducible being appended will have \c -description called on each of its elements, and those descriptions will be appended onto the receiver.
+@interface NSMutableString (REDMutableAppendable) <REDMutableAppendable>
+@end
+
 
 /// \c NSAttributedString conforms to \c REDAppendable.
 @interface NSAttributedString (REDAppendable) <REDAppendable>
