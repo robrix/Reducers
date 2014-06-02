@@ -10,22 +10,22 @@ static NSMutableArray *(^const REDMutableArrayAppend)(NSMutableArray *, id) = ^(
 	return into;
 };
 
--(NSArray *)red_append:(id<REDReducible>)from {
+-(NSArray *)red_byAppending:(id<REDReducible>)from {
 	return [from red_reduce:[self mutableCopy] usingBlock:REDMutableArrayAppend];
 }
 
-l3_test(@selector(red_append:)) {
+l3_test(@selector(red_byAppending:)) {
 	NSArray *empty = @[];
 	NSArray *anything = @[ @"a", @"b" ];
-	l3_expect([empty red_append:anything]).to.equal(anything);
+	l3_expect([empty red_byAppending:anything]).to.equal(anything);
 	NSSet *set = [NSSet setWithObject:@"c"];
-	l3_expect([empty red_append:set]).to.equal(set.allObjects);
-	l3_expect([anything red_append:set]).to.equal([anything arrayByAddingObjectsFromArray:set.allObjects]);
+	l3_expect([empty red_byAppending:set]).to.equal(set.allObjects);
+	l3_expect([anything red_byAppending:set]).to.equal([anything arrayByAddingObjectsFromArray:set.allObjects]);
 }
 
 
-+(NSArray *)red_append:(id<REDReducible>)from {
-	return [[self new] red_append:from];
++(NSArray *)red_byAppending:(id<REDReducible>)from {
+	return [[self new] red_byAppending:from];
 }
 
 @end
@@ -38,22 +38,22 @@ static NSMutableSet *(^const REDMutableSetAppend)(NSMutableSet *, id) = ^(NSMuta
 	return into;
 };
 
--(NSSet *)red_append:(id<REDReducible>)from {
+-(NSSet *)red_byAppending:(id<REDReducible>)from {
 	return [from red_reduce:[self mutableCopy] usingBlock:REDMutableSetAppend];
 }
 
-l3_test(@selector(red_append:)) {
+l3_test(@selector(red_byAppending:)) {
 	NSSet *empty = [NSSet set];
 	NSSet *anything = [NSSet setWithObjects:@"a", @"b", nil];
-	l3_expect([empty red_append:anything]).to.equal(anything);
+	l3_expect([empty red_byAppending:anything]).to.equal(anything);
 	NSArray *array = @[ @"c" ];
-	l3_expect([empty red_append:array]).to.equal([NSSet setWithArray:array]);
-	l3_expect([anything red_append:array]).to.equal([anything setByAddingObjectsFromArray:array]);
+	l3_expect([empty red_byAppending:array]).to.equal([NSSet setWithArray:array]);
+	l3_expect([anything red_byAppending:array]).to.equal([anything setByAddingObjectsFromArray:array]);
 }
 
 
-+(NSSet *)red_append:(id<REDReducible>)from {
-	return [[self new] red_append:from];
++(NSSet *)red_byAppending:(id<REDReducible>)from {
+	return [[self new] red_byAppending:from];
 }
 
 @end
@@ -66,21 +66,21 @@ static NSMutableOrderedSet *(^const REDMutableOrderedSetAppend)(NSMutableOrdered
 	return into;
 };
 
--(NSOrderedSet *)red_append:(id<REDReducible>)from {
+-(NSOrderedSet *)red_byAppending:(id<REDReducible>)from {
 	return [from red_reduce:[self mutableCopy] usingBlock:REDMutableOrderedSetAppend];
 }
 
-l3_test(@selector(red_append:)) {
+l3_test(@selector(red_byAppending:)) {
 	NSOrderedSet *orderedSet = [NSOrderedSet orderedSetWithObjects:@0, @1, @2, nil];
 	NSArray *intersecting = @[ @2, @0, @1, @3, @4, @5 ];
 	NSMutableOrderedSet *unionOrderedSet = [orderedSet mutableCopy];
 	[unionOrderedSet addObjectsFromArray:intersecting];
-	l3_expect([orderedSet red_append:intersecting]).to.equal(unionOrderedSet);
+	l3_expect([orderedSet red_byAppending:intersecting]).to.equal(unionOrderedSet);
 }
 
 
-+(NSOrderedSet *)red_append:(id<REDReducible>)from {
-	return [[self new] red_append:from];
++(NSOrderedSet *)red_byAppending:(id<REDReducible>)from {
+	return [[self new] red_byAppending:from];
 }
 
 @end
@@ -93,20 +93,20 @@ static NSMutableDictionary *(^const REDMutableDictionaryAppend)(NSMutableDiction
 	return into;
 };
 
--(NSDictionary *)red_append:(id<REDReducible>)from {
+-(NSDictionary *)red_byAppending:(id<REDReducible>)from {
 	return [from red_reduce:[self mutableCopy] usingBlock:REDMutableDictionaryAppend];
 }
 
-l3_test(@selector(red_append:)) {
+l3_test(@selector(red_byAppending:)) {
 	NSArray *pairs = @[ @[ @"key", @"value" ], @[ @"number", @3 ], @[ @"number", @4 ], ];
 	NSDictionary *expected = @{ @"key": @"value", @"number": @4, };
 	NSDictionary *empty = @{};
-	l3_expect([empty red_append:pairs]).to.equal(expected);
+	l3_expect([empty red_byAppending:pairs]).to.equal(expected);
 }
 
 
-+(NSDictionary *)red_append:(id<REDReducible>)from {
-	return [[self new] red_append:from];
++(NSDictionary *)red_byAppending:(id<REDReducible>)from {
+	return [[self new] red_byAppending:from];
 }
 
 @end
@@ -119,21 +119,21 @@ static NSMutableString *(^const REDMutableStringAppend)(NSMutableString *, id) =
 	return into;
 };
 
--(NSString *)red_append:(id<REDReducible>)from {
+-(NSString *)red_byAppending:(id<REDReducible>)from {
 	return [from red_reduce:[self mutableCopy] usingBlock:REDMutableStringAppend];
 }
 
-l3_test(@selector(red_append:)) {
+l3_test(@selector(red_byAppending:)) {
 	NSArray *collection = @[ @1, @2, @3 ];
 	NSString *anything = @"prefix";
 	NSString *empty = @"";
-	l3_expect([empty red_append:collection]).to.equal(@"123");
-	l3_expect([anything red_append:collection]).to.equal(@"prefix123");
+	l3_expect([empty red_byAppending:collection]).to.equal(@"123");
+	l3_expect([anything red_byAppending:collection]).to.equal(@"prefix123");
 }
 
 
-+(NSString *)red_append:(id<REDReducible>)from {
-	return [[self new] red_append:from];
++(NSString *)red_byAppending:(id<REDReducible>)from {
+	return [[self new] red_byAppending:from];
 }
 
 @end
@@ -146,22 +146,22 @@ static NSMutableAttributedString *(^const REDMutableAttributedStringAppend)(NSMu
 	return into;
 };
 
--(NSAttributedString *)red_append:(id<REDReducible>)from {
+-(NSAttributedString *)red_byAppending:(id<REDReducible>)from {
 	return [from red_reduce:[self mutableCopy] usingBlock:REDMutableAttributedStringAppend];
 }
 
-l3_test(@selector(red_append:)) {
+l3_test(@selector(red_byAppending:)) {
 	NSDictionary *attributes = @{ @"key": @"value" };
 	NSAttributedString *attributedString = [[NSAttributedString alloc] initWithString:@"v" attributes:attributes];
 	NSAttributedString *empty = [NSAttributedString new];
 	NSAttributedString *joined = [[NSAttributedString alloc] initWithString:@"vvv" attributes:attributes];
 	id<REDReducible> all = @[ attributedString, attributedString, attributedString ];
-	l3_expect([empty red_append:all]).to.equal(joined);
+	l3_expect([empty red_byAppending:all]).to.equal(joined);
 }
 
 
-+(NSAttributedString *)red_append:(id<REDReducible>)from {
-	return [[self new] red_append:from];
++(NSAttributedString *)red_byAppending:(id<REDReducible>)from {
+	return [[self new] red_byAppending:from];
 }
 
 @end

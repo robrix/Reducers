@@ -42,7 +42,7 @@ id<REDIterable, REDReducible> REDConvolve(id<REDIterable, REDReducible> reducibl
 #pragma mark REDIterable
 
 -(REDIteratingBlock)red_iterator {
-	NSArray *iterators = [NSArray red_append:REDMap(_reducibles, ^id (id<REDIterable> each) {
+	NSArray *iterators = [NSArray red_byAppending:REDMap(_reducibles, ^id (id<REDIterable> each) {
 		return each.red_iterator;
 	})];
 	NSUInteger count = iterators.count;
@@ -84,10 +84,10 @@ l3_test(@selector(red_reduce:usingBlock:)) {
 	REDReducingBlock append = ^(NSString *a, NSString *b) {
 		return [a stringByAppendingString:b];
 	};
-	NSArray *convolution = [NSArray red_append:REDConvolve(@[ @"fish", @"face" ], append)];
+	NSArray *convolution = [NSArray red_byAppending:REDConvolve(@[ @"fish", @"face" ], append)];
 	l3_expect(convolution).to.equal(@[ @"ff", @"ia", @"sc", @"he" ]);
 	
-	convolution = [NSArray red_append:REDConvolve(@[ REDMap(@"fish", ^(NSString *each) { return [each stringByAppendingString:each]; }), @"face" ], append)];
+	convolution = [NSArray red_byAppending:REDConvolve(@[ REDMap(@"fish", ^(NSString *each) { return [each stringByAppendingString:each]; }), @"face" ], append)];
 	l3_expect(convolution).to.equal(@[ @"fff", @"iia", @"ssc", @"hhe" ]);
 }
 
