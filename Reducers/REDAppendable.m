@@ -118,13 +118,8 @@ l3_test(@selector(red_byAppending:)) {
 
 @implementation NSAttributedString (REDAppendable)
 
-static NSMutableAttributedString *(^const REDMutableAttributedStringAppend)(NSMutableAttributedString *, NSAttributedString *) = ^(NSMutableAttributedString *into, NSAttributedString *each) {
-	[into appendAttributedString:each];
-	return into;
-};
-
 -(NSAttributedString *)red_byAppending:(id<REDReducible>)from {
-	return [from red_reduce:[self mutableCopy] usingBlock:REDMutableAttributedStringAppend];
+	return [[self mutableCopy] red_append:from];
 }
 
 l3_test(@selector(red_byAppending:)) {
@@ -138,7 +133,7 @@ l3_test(@selector(red_byAppending:)) {
 
 
 +(NSAttributedString *)red_byAppending:(id<REDReducible>)from {
-	return [[self new] red_byAppending:from];
+	return [[NSMutableAttributedString new] red_append:from];
 }
 
 @end
@@ -211,6 +206,20 @@ static NSMutableString *(^const REDMutableStringAppend)(NSMutableString *, id) =
 
 -(instancetype)red_append:(id<REDReducible>)from {
 	return [from red_reduce:self usingBlock:REDMutableStringAppend];
+}
+
+@end
+
+
+@implementation NSMutableAttributedString (REDMutableAppendable)
+
+static NSMutableAttributedString *(^const REDMutableAttributedStringAppend)(NSMutableAttributedString *, NSAttributedString *) = ^(NSMutableAttributedString *into, NSAttributedString *each) {
+	[into appendAttributedString:each];
+	return into;
+};
+
+-(instancetype)red_append:(id<REDReducible>)from {
+	return [from red_reduce:self usingBlock:REDMutableAttributedStringAppend];
 }
 
 @end

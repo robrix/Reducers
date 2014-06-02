@@ -111,3 +111,8 @@
 
 @end
 
+/// \c NSMutableAttributedString conforms to \c REDAppendable.
+///
+/// The reducible being appended must produce non-nil \c NSAttributedString instances.
+@interface NSMutableAttributedString (REDMutableAppendable) <REDMutableAppendable>
+@end
