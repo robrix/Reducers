@@ -75,13 +75,8 @@ l3_test(@selector(red_byAppending:)) {
 
 @implementation NSDictionary (REDAppendable)
 
-static NSMutableDictionary *(^const REDMutableDictionaryAppend)(NSMutableDictionary *, id) = ^(NSMutableDictionary *into, id<REDKeyValuePair> each) {
-	[into setObject:each.red_value forKey:each.red_key];
-	return into;
-};
-
 -(NSDictionary *)red_byAppending:(id<REDReducible>)from {
-	return [from red_reduce:[self mutableCopy] usingBlock:REDMutableDictionaryAppend];
+	return [[self mutableCopy] red_append:from];
 }
 
 l3_test(@selector(red_byAppending:)) {
@@ -93,7 +88,7 @@ l3_test(@selector(red_byAppending:)) {
 
 
 +(NSDictionary *)red_byAppending:(id<REDReducible>)from {
-	return [[self new] red_byAppending:from];
+	return [[NSMutableDictionary new] red_append:from];
 }
 
 @end
@@ -193,6 +188,20 @@ static NSMutableOrderedSet *(^const REDMutableOrderedSetAppend)(NSMutableOrdered
 
 -(instancetype)red_append:(id<REDReducible>)from {
 	return [from red_reduce:self usingBlock:REDMutableOrderedSetAppend];
+}
+
+@end
+
+
+@implementation NSMutableDictionary (REDMutableAppendable)
+
+static NSMutableDictionary *(^const REDMutableDictionaryAppend)(NSMutableDictionary *, id) = ^(NSMutableDictionary *into, id<REDKeyValuePair> each) {
+	[into setObject:each.red_value forKey:each.red_key];
+	return into;
+};
+
+-(instancetype)red_append:(id<REDReducible>)from {
+	return [from red_reduce:self usingBlock:REDMutableDictionaryAppend];
 }
 
 @end

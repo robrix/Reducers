@@ -82,6 +82,12 @@
 
 @end
 
+/// \c NSMutableDictionary conforms to \c REDMutableAppendable.
+///
+/// The reducible being appended must produce objects conforming to \c REDKeyValuePair, and the pairs’ keys and values must not be nil.
+@interface NSMutableDictionary (REDMutableAppendable) <REDMutableAppendable>
+@end
+
 
 /// \c NSString conforms to \c REDAppendable.
 ///
