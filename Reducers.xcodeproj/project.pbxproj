@@ -15,13 +15,13 @@
 		D46D2B7618E11E800065701D /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4ACA64F18DDEC4A00EBD899 /* XCTest.framework */; };
 		D46D2B7718E11E800065701D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4CE31F118DF598B00CADB65 /* Foundation.framework */; };
 		D46D2B8818E11F0E0065701D /* ReducersTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D46D2B6918E11E490065701D /* ReducersTests.m */; };
-		D46D2B9018E11F920065701D /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4ACA64F18DDEC4A00EBD899 /* XCTest.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		D46D2B9218E1E2CE0065701D /* Lagrangian.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D46D2B9118E1E2CE0065701D /* Lagrangian.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		D46D2B9318E1E2DC0065701D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4ACA63D18DDEC4900EBD899 /* Foundation.framework */; };
 		D46D2B9518E1E2E70065701D /* libLagrangian.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D46D2B9418E1E2E70065701D /* libLagrangian.a */; settings = {ATTRIBUTES = (Weak, ); }; };
 		D46D2B9618E1E30C0065701D /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4ACA64F18DDEC4A00EBD899 /* XCTest.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		D46D2B9718E1E3910065701D /* Lagrangian.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D46D2B9118E1E2CE0065701D /* Lagrangian.framework */; };
 		D46D2B9818E1E3A40065701D /* libLagrangian.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D46D2B9418E1E2E70065701D /* libLagrangian.a */; };
+		D4A16B8B1995CDC700DEC88A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4A16B8A1995CDC700DEC88A /* XCTest.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		D4A553E2191FA54400DA2EAE /* Obstruct.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4A553E1191FA54400DA2EAE /* Obstruct.framework */; };
 		D4A553E5191FCB7300DA2EAE /* REDIterable.h in Headers */ = {isa = PBXBuildFile; fileRef = D4A553E3191FCB7300DA2EAE /* REDIterable.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D4A553E6191FCB7300DA2EAE /* REDIterable.h in Headers */ = {isa = PBXBuildFile; fileRef = D4A553E3191FCB7300DA2EAE /* REDIterable.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -92,6 +92,7 @@
 		D46D2B7818E11E800065701D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		D46D2B9118E1E2CE0065701D /* Lagrangian.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Lagrangian.framework; path = External/Lagrangian/build/Debug/Lagrangian.framework; sourceTree = "<group>"; };
 		D46D2B9418E1E2E70065701D /* libLagrangian.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libLagrangian.a; path = "External/Lagrangian/build/Debug-iphoneos/libLagrangian.a"; sourceTree = "<group>"; };
+		D4A16B8A1995CDC700DEC88A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/MacOSX.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		D4A553E1191FA54400DA2EAE /* Obstruct.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Obstruct.framework; path = External/Obstruct/build/Debug/Obstruct.framework; sourceTree = "<group>"; };
 		D4A553E3191FCB7300DA2EAE /* REDIterable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDIterable.h; sourceTree = "<group>"; };
 		D4A553E4191FCB7300DA2EAE /* REDIterable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDIterable.m; sourceTree = "<group>"; };
@@ -154,8 +155,8 @@
 			files = (
 				D4A553E2191FA54400DA2EAE /* Obstruct.framework in Frameworks */,
 				D46D2B9318E1E2DC0065701D /* Foundation.framework in Frameworks */,
-				D46D2B9018E11F920065701D /* XCTest.framework in Frameworks */,
 				D46D2B9218E1E2CE0065701D /* Lagrangian.framework in Frameworks */,
+				D4A16B8B1995CDC700DEC88A /* XCTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,6 +214,7 @@
 		D4ACA63918DDEC4900EBD899 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D4A16B8A1995CDC700DEC88A /* XCTest.framework */,
 				D4A553E1191FA54400DA2EAE /* Obstruct.framework */,
 				D46D2B9418E1E2E70065701D /* libLagrangian.a */,
 				D46D2B9118E1E2CE0065701D /* Lagrangian.framework */,
@@ -700,7 +702,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(DEVELOPER_SDK_DIR)/../Library/Frameworks/",
+					"$(DEVELOPER_DIR)/Platforms/MacOSX.platform/Developer/Library/Frameworks",
 				);
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = "Reducers/Reducers-Info.plist";
@@ -718,7 +720,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(DEVELOPER_SDK_DIR)/../Library/Frameworks/",
+					"$(DEVELOPER_DIR)/Platforms/MacOSX.platform/Developer/Library/Frameworks",
 				);
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = "Reducers/Reducers-Info.plist";
