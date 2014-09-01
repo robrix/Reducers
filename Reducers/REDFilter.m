@@ -59,7 +59,7 @@ REDPredicateBlock const REDFalsePredicateBlock = ^bool (id _) {
 
 REDPredicateBlock REDEqualityPredicate(id object) {
 	return ^bool (id subject) {
-		return [subject isEqual:object];
+		return subject == object || [subject isEqual:object];
 	};
 }
 
