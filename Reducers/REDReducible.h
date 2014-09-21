@@ -86,5 +86,7 @@ typedef id(^REDReducingBlock)(id into, id each);
 
 
 /// \c NSIndexSet conforms to \c REDReducible.
+///
+/// Reduction is performed by index.
 @interface NSIndexSet (REDReducible) <REDReducible>
 @end
