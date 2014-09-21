@@ -159,3 +159,16 @@ l3_test(@selector(red_reduce:usingBlock:)) {
 }
 
 @end
+
+
+@implementation NSIndexSet (REDReducible)
+
+-(id)red_reduce:(id)initial usingBlock:(REDReducingBlock)block {
+	__block id result = initial;
+	[self enumerateIndexesUsingBlock:^(NSUInteger index, BOOL *stop) {
+		result = block(initial, @(index));
+	}];
+	return [result self];
+}
+
+@end

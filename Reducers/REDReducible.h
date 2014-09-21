@@ -83,3 +83,10 @@ typedef id(^REDReducingBlock)(id into, id each);
 /// Reducing an enumerator with \c -red_reduce:usingBlock: uses \c -nextObject, and thus consumes all of the objects in the enumerator.
 @interface NSEnumerator (REDReducible) <REDReducible>
 @end
+
+
+/// \c NSIndexSet conforms to \c REDReducible.
+///
+/// Reduction is performed by index.
+@interface NSIndexSet (REDReducible) <REDReducible>
+@end
