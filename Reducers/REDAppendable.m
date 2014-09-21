@@ -139,6 +139,19 @@ l3_test(@selector(red_byAppending:)) {
 @end
 
 
+@implementation NSIndexSet (REDAppendable)
+
+-(instancetype)red_byAppending:(id<REDReducible>)from {
+	return [[self mutableCopy] red_append:from];
+}
+
++(instancetype)red_byAppending:(id<REDReducible>)from {
+	return [[NSMutableIndexSet new] red_append:from];
+}
+
+@end
+
+
 #pragma mark REDMutableAppendable categories
 
 @implementation NSMutableArray (REDMutableAppendable)
@@ -220,6 +233,20 @@ static NSMutableAttributedString *(^const REDMutableAttributedStringAppend)(NSMu
 
 -(instancetype)red_append:(id<REDReducible>)from {
 	return [from red_reduce:self usingBlock:REDMutableAttributedStringAppend];
+}
+
+@end
+
+
+@implementation NSMutableIndexSet (REDMutableAppendable)
+
+static NSMutableIndexSet *(^const REDMutableIndexSetAppend)(NSMutableIndexSet *, NSNumber *) = ^(NSMutableIndexSet *into, NSNumber *each) {
+	[into addIndex:each.unsignedIntegerValue];
+	return into;
+};
+
+-(instancetype)red_append:(id<REDReducible>)from {
+	return [from red_reduce:self usingBlock:REDMutableIndexSetAppend];
 }
 
 @end

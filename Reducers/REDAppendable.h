@@ -116,3 +116,12 @@
 /// The reducible being appended must produce non-nil \c NSAttributedString instances.
 @interface NSMutableAttributedString (REDMutableAppendable) <REDMutableAppendable>
 @end
+
+
+/// \c NSIndeSet conforms to \c REDAppendable.
+@interface NSIndexSet (REDAppendable) <REDAppendable>
+@end
+
+/// \c NSMutableIndexSet conforms to \c REDMutableAppendable.
+@interface NSMutableIndexSet (REDMutableAppendable) <REDMutableAppendable>
+@end
