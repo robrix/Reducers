@@ -6,6 +6,7 @@
 #import <Reducers/REDAppendable.h>
 #import <Reducers/REDIterable.h>
 #import <Reducers/REDPair.h>
+#import <Reducers/REDIdiom.h>
 
 
 #pragma mark Reducers
